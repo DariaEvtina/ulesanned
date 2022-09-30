@@ -20,6 +20,7 @@ namespace ulesanned
         {
             this.Size = new Size(700, 500);
             this.Text = "ulesanne #1";
+            this.MaximizeBox = false;
             TableLayoutPanel tlp = new TableLayoutPanel
             {
                 AutoSize = true,

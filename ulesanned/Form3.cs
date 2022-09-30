@@ -14,8 +14,10 @@ namespace ulesanned
     {
         public Form3()
         {
-            this.Size = new Size(700, 500);
+            this.Size = new Size(500, 400);
             this.Text = "ulesanne #2";
+            this.FormBorderStyle = FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
         }
 
         private void Form3_Load(object sender, EventArgs e)
