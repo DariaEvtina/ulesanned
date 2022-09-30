@@ -12,11 +12,9 @@ namespace ulesanned
 {
     public partial class Form3 : Form
     {
+        Random rnd;
         Label Timelb;
-        Label Value1;
-        Label Value2;
-        Label Sign;
-        NumericUpDown Result;
+        char[] sings = new char[] { '-', '+', '/', '*' };
         public Form3()
         {
             this.Size = new Size(500, 400);
@@ -38,68 +36,57 @@ namespace ulesanned
                 Location = new Point(165, 10),
                 Font = new Font("Arial", 16)
             };
-            /*Value1 = new Label
-            {
-                Text="?",
-                AutoSize=false,
-                Size=new Size(60,50),
-                Font = new Font("Arial", 18),
-                TextAlign=ContentAlignment.MiddleCenter,
-                Location=new Point(50,75)
-            };
-            Sign = new Label
-            {
-                Text = "+",
-                AutoSize = false,
-                Size = new Size(60, 50),
-                Font = new Font("Arial", 18),
-                TextAlign = ContentAlignment.MiddleCenter,
-                Location = new Point(110, 75)
-            };
-           Value2 = new Label
-            {
-                Text = "?",
-                AutoSize = false,
-                Size = new Size(60, 50),
-                Font = new Font("Arial", 18),
-                TextAlign = ContentAlignment.MiddleCenter,
-                Location = new Point(170, 75)
-            };
-            Label Equel = new Label
-            {
-                Text = "=",
-                AutoSize = false,
-                Size = new Size(60, 50),
-                Font = new Font("Arial", 18),
-                TextAlign = ContentAlignment.MiddleCenter,
-                Location = new Point(230, 75)
-            };
-            Result = new NumericUpDown
-            {
-                AutoSize = false,
-                Size = new Size(100, 50),
-                Font = new Font("Arial", 18),
-                Location = new Point(310, 75)
-            };
-            this.Controls.Add(Value2); 
-            this.Controls.Add(Value1);
-            this.Controls.Add(Sign);
-            this.Controls.Add(Equel);
-            this.Controls.Add(Result);*/
             TableLayoutPanel tlp = new TableLayoutPanel
             {
                 AutoSize = true,
-                Size = new Size(500, 300),
-                Location = new Point(0, 40),
-                ColumnCount = 4,
+                Size = new Size(100, 270),
+                Location = new Point(80, 50),
+                ColumnCount = 5,
                 RowCount = 4,
                 BackColor = Color.White,
             };
-            /*for (int i = 0; i < 4; i++)
+            Button Start = new Button
             {
-
-            }*/
+                Text="Start quiz",
+                Location = new Point(200,325)
+            };
+            rnd=new Random();
+            for (int i = 0; i < 4; i++)
+            {
+                tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+                tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3F));
+                tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3F));
+                tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3F));
+                tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3F));
+                tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3F));
+                NumericUpDown Result = new NumericUpDown { Size = new Size(60, 50),Font = new Font("Arial", 18)};
+                Label v1 = new Label {Text="?",Size = new Size(60, 50),
+                    Font = new Font("Arial", 18),
+                    TextAlign = ContentAlignment.MiddleCenter
+                };
+                Label v2 = new Label { Text = "?",
+                    Size = new Size(60, 50),
+                    Font = new Font("Arial", 18),
+                    TextAlign = ContentAlignment.MiddleCenter
+                };
+                Label sign = new Label { Text = $"{sings[rnd.Next(0,3)]}",
+                    Size = new Size(60, 50),
+                    Font = new Font("Arial", 18),
+                    TextAlign = ContentAlignment.MiddleCenter
+                };
+                Label equel = new Label { Text = "=",
+                    Size = new Size(60, 50),
+                    Font = new Font("Arial", 18),
+                    TextAlign = ContentAlignment.MiddleCenter
+                };
+                tlp.Controls.Add(v1,0,i);
+                tlp.Controls.Add(sign, 1, i);
+                tlp.Controls.Add(v2, 2, i);
+                tlp.Controls.Add(equel, 3, i);
+                tlp.Controls.Add(Result, 4, i);
+            }
             this.Controls.Add(tlp);
+            this.Controls.Add(Start);
             this.Controls.Add(Timelb);
             this.Controls.Add(lb);
         }
