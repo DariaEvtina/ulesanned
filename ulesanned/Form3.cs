@@ -72,7 +72,7 @@ namespace ulesanned
                 tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3F));
                 tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3F));
             }
-            Result_1 = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18) };
+            Result_1 = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18), Minimum = -20 };
             v1_1 = new Label
             {
                 Text = "?",
@@ -106,7 +106,7 @@ namespace ulesanned
             tlp.Controls.Add(v2_1, 2, 0);
             tlp.Controls.Add(equel_1, 3, 0);
             tlp.Controls.Add(Result_1, 4, 0);
-             Result = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18) };
+             Result = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18), Minimum = -20 };
              v1 = new Label
             {
                 Text = "?",
@@ -140,7 +140,7 @@ namespace ulesanned
             tlp.Controls.Add(v2, 2, 1);
             tlp.Controls.Add(equel, 3, 1);
             tlp.Controls.Add(Result, 4, 1);
-            Result_ = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18) };
+            Result_ = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18), Minimum = -20 };
              v1_ = new Label
             {
                 Text = "?",
@@ -174,7 +174,7 @@ namespace ulesanned
             tlp.Controls.Add(v2_, 2, 2);
             tlp.Controls.Add(equel_, 3, 2);
             tlp.Controls.Add(Result_, 4, 2);
-            Result_2 = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18) };
+            Result_2 = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18),Minimum=-20 };
               v1_2 = new Label
             {
                 Text = "?",
@@ -403,6 +403,7 @@ namespace ulesanned
             Finish.Visible = false;
             Start.Visible = true;
             check();
+
         }
 
         public void StartQuz()
