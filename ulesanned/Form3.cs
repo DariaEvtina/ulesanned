@@ -20,6 +20,8 @@ namespace ulesanned
         Label v1_; Label v2_; Label sign_; Label equel_; NumericUpDown Result_;
         Label v1_1; Label v2_1; Label sign_1; Label equel_1; NumericUpDown Result_1;
         Label v1_2; Label v2_2; Label sign_2; Label equel_2; NumericUpDown Result_2;
+        Timer timer;
+        int timeLeft=2000;
         char[] sings = new char[] { '-', '+', '/', '*' };
         public Form3()
         {
@@ -210,32 +212,52 @@ namespace ulesanned
             tlp.Controls.Add(Result_2, 4, 3);
             Start.Click += Start_Click;
             Finish.Click += Finish_Click;
+            timer = new Timer();
+            timer.Tick += Timer_Tick;
             this.Controls.Add(tlp);
             this.Controls.Add(Finish);
             this.Controls.Add(Start);
             this.Controls.Add(Timelb);
             this.Controls.Add(lb);
         }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (timeLeft > 0)
+            {
+                timeLeft = timeLeft - 1;
+                Timelb.Text = timeLeft + " seconds";
+            }
+            else
+            {
+                // If the user ran out of time, stop the timer, show
+                // a MessageBox, and fill in the answers.
+                timer.Stop();
+                Timelb.Text = "Time's up!";
+                MessageBox.Show("You didn't finish in time.", "Sorry!");
+            }
+        }
+
         public void check()
         {
             if (sign.Text=="+")
             {
-                if (Result.Value == Math.Abs(Convert.ToInt32(v1.Text) + Convert.ToInt32(v2.Text)))
+                if (Result.Value == Convert.ToInt32(v1.Text) + Convert.ToInt32(v2.Text))
                 {
                     Result.BackColor = Color.Green;
                 }
-                else if (Result.Value != Math.Abs(Convert.ToInt32(v1.Text) + Convert.ToInt32(v2.Text)))
+                else if (Result.Value != Convert.ToInt32(v1.Text) + Convert.ToInt32(v2.Text))
                 {
                     Result.BackColor = Color.Red;
                 }
             }
             else if (sign.Text == "-")
             {
-                if (Result.Value == Math.Abs(Convert.ToInt32(v1.Text) - Convert.ToInt32(v2.Text)))
+                if (Result.Value == Convert.ToInt32(v1.Text) - Convert.ToInt32(v2.Text))
                 {
                     Result.BackColor = Color.Green;
                 }
-                else if (Result.Value != Math.Abs(Convert.ToInt32(v1.Text) - Convert.ToInt32(v2.Text)))
+                else if (Result.Value != Convert.ToInt32(v1.Text) - Convert.ToInt32(v2.Text))
                 {
                     Result.BackColor = Color.Red;
                 }
@@ -265,22 +287,22 @@ namespace ulesanned
             ////////
             if (sign_.Text == "+")
             {
-                if (Result_.Value == Math.Abs(Convert.ToInt32(v1_.Text) + Convert.ToInt32(v2_.Text)))
+                if (Result_.Value == Convert.ToInt32(v1_.Text) + Convert.ToInt32(v2_.Text))
                 {
                     Result_.BackColor = Color.Green;
                 }
-                else if (Result_.Value != Math.Abs(Convert.ToInt32(v1_.Text) + Convert.ToInt32(v2_.Text)))
+                else if (Result_.Value != Convert.ToInt32(v1_.Text) + Convert.ToInt32(v2_.Text))
                 {
                     Result_.BackColor = Color.Red;
                 }
             }
             else if (sign_.Text == "-")
             {
-                if (Result_.Value == Math.Abs(Convert.ToInt32(v1_.Text) - Convert.ToInt32(v2_.Text)))
+                if (Result_.Value == Convert.ToInt32(v1_.Text) - Convert.ToInt32(v2_.Text))
                 {
                     Result_.BackColor = Color.Green;
                 }
-                else if (Result_.Value != Math.Abs(Convert.ToInt32(v1_.Text) - Convert.ToInt32(v2_.Text)))
+                else if (Result_.Value !=Convert.ToInt32(v1_.Text) - Convert.ToInt32(v2_.Text))
                 {
                     Result_.BackColor = Color.Red;
                 }
@@ -310,22 +332,22 @@ namespace ulesanned
             ////////
             if (sign_1.Text == "+")
             {
-                if (Result_1.Value == Math.Abs(Convert.ToInt32(v1_1.Text) + Convert.ToInt32(v2_1.Text)))
+                if (Result_1.Value == Convert.ToInt32(v1_1.Text) + Convert.ToInt32(v2_1.Text))
                 {
                     Result_1.BackColor = Color.Green;
                 }
-                else if (Result_1.Value != Math.Abs(Convert.ToInt32(v1_1.Text) + Convert.ToInt32(v2_1.Text)))
+                else if (Result_1.Value != Convert.ToInt32(v1_1.Text) + Convert.ToInt32(v2_1.Text))
                 {
                     Result_1.BackColor = Color.Red;
                 }
             }
             else if (sign_1.Text == "-")
             {
-                if (Result_1.Value == Math.Abs(Convert.ToInt32(v1_1.Text) - Convert.ToInt32(v2_1.Text)))
+                if (Result_1.Value == Convert.ToInt32(v1_1.Text) - Convert.ToInt32(v2_1.Text))
                 {
                     Result_1.BackColor = Color.Green;
                 }
-                else if (Result_1.Value != Math.Abs(Convert.ToInt32(v1_1.Text) - Convert.ToInt32(v2_1.Text)))
+                else if (Result_1.Value != Convert.ToInt32(v1_1.Text) - Convert.ToInt32(v2_1.Text))
                 {
                     Result_1.BackColor = Color.Red;
                 }
@@ -355,22 +377,22 @@ namespace ulesanned
             ////////
             if (sign_2.Text == "+")
             {
-                if (Result_2.Value == Math.Abs(Convert.ToInt32(v1_2.Text) + Convert.ToInt32(v2_2.Text)))
+                if (Result_2.Value == Convert.ToInt32(v1_2.Text) + Convert.ToInt32(v2_2.Text))
                 {
                     Result_2.BackColor = Color.Green;
                 }
-                else if (Result_2.Value != Math.Abs(Convert.ToInt32(v1_2.Text) + Convert.ToInt32(v2_2.Text)))
+                else if (Result_2.Value != Convert.ToInt32(v1_2.Text) + Convert.ToInt32(v2_2.Text))
                 {
                     Result_2.BackColor = Color.Red;
                 }
             }
             else if (sign_2.Text == "-")
             {
-                if (Result_2.Value == Math.Abs(Convert.ToInt32(v1_2.Text) - Convert.ToInt32(v2_2.Text)))
+                if (Result_2.Value == Convert.ToInt32(v1_2.Text) - Convert.ToInt32(v2_2.Text))
                 {
                     Result_2.BackColor = Color.Green;
                 }
-                else if (Result_2.Value != Math.Abs(Convert.ToInt32(v1_2.Text) - Convert.ToInt32(v2_2.Text)))
+                else if (Result_2.Value != Convert.ToInt32(v1_2.Text) - Convert.ToInt32(v2_2.Text))
                 {
                     Result_2.BackColor = Color.Red;
                 }
@@ -403,11 +425,13 @@ namespace ulesanned
             Finish.Visible = false;
             Start.Visible = true;
             check();
-
+            timer.Stop();
         }
 
         public void StartQuz()
         {
+            timeLeft = 2000;
+            timer.Start();
             Result.BackColor = Color.White;
             Result_.BackColor = Color.White;
             Result_1.BackColor = Color.White;
