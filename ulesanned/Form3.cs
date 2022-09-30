@@ -59,32 +59,143 @@ namespace ulesanned
                 tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3F));
                 tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3F));
                 tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3F));
-                NumericUpDown Result = new NumericUpDown { Size = new Size(60, 50),Font = new Font("Arial", 18)};
-                Label v1 = new Label {Text="?",Size = new Size(60, 50),
-                    Font = new Font("Arial", 18),
-                    TextAlign = ContentAlignment.MiddleCenter
-                };
-                Label v2 = new Label { Text = "?",
-                    Size = new Size(60, 50),
-                    Font = new Font("Arial", 18),
-                    TextAlign = ContentAlignment.MiddleCenter
-                };
-                Label sign = new Label { Text = $"{sings[rnd.Next(0,3)]}",
-                    Size = new Size(60, 50),
-                    Font = new Font("Arial", 18),
-                    TextAlign = ContentAlignment.MiddleCenter
-                };
-                Label equel = new Label { Text = "=",
-                    Size = new Size(60, 50),
-                    Font = new Font("Arial", 18),
-                    TextAlign = ContentAlignment.MiddleCenter
-                };
-                tlp.Controls.Add(v1,0,i);
-                tlp.Controls.Add(sign, 1, i);
-                tlp.Controls.Add(v2, 2, i);
-                tlp.Controls.Add(equel, 3, i);
-                tlp.Controls.Add(Result, 4, i);
             }
+            NumericUpDown Result_1 = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18) };
+            Label v1_1 = new Label
+            {
+                Text = "?",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            Label v2_1 = new Label
+            {
+                Text = "?",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            Label sign_1 = new Label
+            {
+                Text = $"{sings[rnd.Next(0, 3)]}",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            Label equel_1 = new Label
+            {
+                Text = "=",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            tlp.Controls.Add(v1_1, 0, 0);
+            tlp.Controls.Add(sign_1, 1, 0);
+            tlp.Controls.Add(v2_1, 2, 0);
+            tlp.Controls.Add(equel_1, 3, 0);
+            tlp.Controls.Add(Result_1, 4, 0);
+            NumericUpDown Result = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18) };
+            Label v1 = new Label
+            {
+                Text = "?",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            Label v2 = new Label
+            {
+                Text = "?",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            Label sign = new Label
+            {
+                Text = $"{sings[rnd.Next(0, 3)]}",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            Label equel = new Label
+            {
+                Text = "=",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            tlp.Controls.Add(v1, 0, 1);
+            tlp.Controls.Add(sign, 1, 1);
+            tlp.Controls.Add(v2, 2, 1);
+            tlp.Controls.Add(equel, 3, 1);
+            tlp.Controls.Add(Result, 4, 1);
+            NumericUpDown Result_ = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18) };
+            Label v1_ = new Label
+            {
+                Text = "?",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            Label v2_ = new Label
+            {
+                Text = "?",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            Label sign_ = new Label
+            {
+                Text = $"{sings[rnd.Next(0, 3)]}",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            Label equel_ = new Label
+            {
+                Text = "=",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            tlp.Controls.Add(v1_, 0, 2);
+            tlp.Controls.Add(sign_, 1, 2);
+            tlp.Controls.Add(v2_, 2, 2);
+            tlp.Controls.Add(equel_, 3, 2);
+            tlp.Controls.Add(Result_, 4, 2);
+            NumericUpDown Result_2 = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18) };
+            Label v1_2 = new Label
+            {
+                Text = "?",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            Label v2_2 = new Label
+            {
+                Text = "?",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            Label sign_2 = new Label
+            {
+                Text = $"{sings[rnd.Next(0, 3)]}",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            Label equel_2 = new Label
+            {
+                Text = "=",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            tlp.Controls.Add(v1_2, 0, 3);
+            tlp.Controls.Add(sign_2, 1, 3);
+            tlp.Controls.Add(v2_2, 2, 3);
+            tlp.Controls.Add(equel_2, 3, 3);
+            tlp.Controls.Add(Result_2, 4, 3);
             this.Controls.Add(tlp);
             this.Controls.Add(Start);
             this.Controls.Add(Timelb);
