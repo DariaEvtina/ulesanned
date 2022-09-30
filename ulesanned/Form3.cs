@@ -26,7 +26,7 @@ namespace ulesanned
         public Form3()
         {
             this.Size = new Size(500, 400);
-            this.Text = "ulesanne #2";
+            this.Text = "MATH QUIZ";
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             Timelb = new Label

@@ -19,7 +19,7 @@ namespace ulesanned
         public Form2()
         {
             this.Size = new Size(700, 500);
-            this.Text = "ulesanne #1";
+            this.Text = "PICTURE VIEWER";
             this.MaximizeBox = false;
             TableLayoutPanel tlp = new TableLayoutPanel
             {
