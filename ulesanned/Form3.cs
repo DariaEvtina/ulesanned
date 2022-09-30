@@ -174,7 +174,7 @@ namespace ulesanned
             tlp.Controls.Add(v2_, 2, 2);
             tlp.Controls.Add(equel_, 3, 2);
             tlp.Controls.Add(Result_, 4, 2);
-            NumericUpDown Result_2 = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18) };
+            Result_2 = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18) };
               v1_2 = new Label
             {
                 Text = "?",
@@ -216,23 +216,209 @@ namespace ulesanned
             this.Controls.Add(Timelb);
             this.Controls.Add(lb);
         }
-
+        public void check()
+        {
+            if (sign.Text=="+")
+            {
+                if (Result.Value == Math.Abs(Convert.ToInt32(v1.Text) + Convert.ToInt32(v2.Text)))
+                {
+                    Result.BackColor = Color.Green;
+                }
+                else if (Result.Value != Math.Abs(Convert.ToInt32(v1.Text) + Convert.ToInt32(v2.Text)))
+                {
+                    Result.BackColor = Color.Red;
+                }
+            }
+            else if (sign.Text == "-")
+            {
+                if (Result.Value == Math.Abs(Convert.ToInt32(v1.Text) - Convert.ToInt32(v2.Text)))
+                {
+                    Result.BackColor = Color.Green;
+                }
+                else if (Result.Value != Math.Abs(Convert.ToInt32(v1.Text) - Convert.ToInt32(v2.Text)))
+                {
+                    Result.BackColor = Color.Red;
+                }
+            }
+            else if (sign.Text == "/")
+            {
+                if (Result.Value == Math.Abs(Convert.ToInt32(v1.Text) / Convert.ToInt32(v2.Text)))
+                {
+                    Result.BackColor = Color.Green;
+                }
+                else if (Result.Value != Math.Abs(Convert.ToInt32(v1.Text) / Convert.ToInt32(v2.Text)))
+                {
+                    Result.BackColor = Color.Red;
+                }
+            }
+            else if (sign.Text == "*")
+            {
+                if (Result.Value == Math.Abs(Convert.ToInt32(v1.Text) * Convert.ToInt32(v2.Text)))
+                {
+                    Result.BackColor = Color.Green;
+                }
+                else if (Result.Value != Math.Abs(Convert.ToInt32(v1.Text) * Convert.ToInt32(v2.Text)))
+                {
+                    Result.BackColor = Color.Red;
+                }
+            }
+            ////////
+            if (sign_.Text == "+")
+            {
+                if (Result_.Value == Math.Abs(Convert.ToInt32(v1_.Text) + Convert.ToInt32(v2_.Text)))
+                {
+                    Result_.BackColor = Color.Green;
+                }
+                else if (Result_.Value != Math.Abs(Convert.ToInt32(v1_.Text) + Convert.ToInt32(v2_.Text)))
+                {
+                    Result_.BackColor = Color.Red;
+                }
+            }
+            else if (sign_.Text == "-")
+            {
+                if (Result_.Value == Math.Abs(Convert.ToInt32(v1_.Text) - Convert.ToInt32(v2_.Text)))
+                {
+                    Result_.BackColor = Color.Green;
+                }
+                else if (Result_.Value != Math.Abs(Convert.ToInt32(v1_.Text) - Convert.ToInt32(v2_.Text)))
+                {
+                    Result_.BackColor = Color.Red;
+                }
+            }
+            else if (sign_.Text == "/")
+            {
+                if (Result_.Value == Math.Abs(Convert.ToInt32(v1_.Text) / Convert.ToInt32(v2_.Text)))
+                {
+                    Result_.BackColor = Color.Green;
+                }
+                else if (Result_.Value != Math.Abs(Convert.ToInt32(v1_.Text) / Convert.ToInt32(v2_.Text)))
+                {
+                    Result_.BackColor = Color.Red;
+                }
+            }
+            else if (sign_.Text == "*")
+            {
+                if (Result_.Value == Math.Abs(Convert.ToInt32(v1_.Text) * Convert.ToInt32(v2_.Text)))
+                {
+                    Result_.BackColor = Color.Green;
+                }
+                else if (Result_.Value != Math.Abs(Convert.ToInt32(v1_.Text) * Convert.ToInt32(v2_.Text)))
+                {
+                    Result_.BackColor = Color.Red;
+                }
+            }
+            ////////
+            if (sign_1.Text == "+")
+            {
+                if (Result_1.Value == Math.Abs(Convert.ToInt32(v1_1.Text) + Convert.ToInt32(v2_1.Text)))
+                {
+                    Result_1.BackColor = Color.Green;
+                }
+                else if (Result_1.Value != Math.Abs(Convert.ToInt32(v1_1.Text) + Convert.ToInt32(v2_1.Text)))
+                {
+                    Result_1.BackColor = Color.Red;
+                }
+            }
+            else if (sign_1.Text == "-")
+            {
+                if (Result_1.Value == Math.Abs(Convert.ToInt32(v1_1.Text) - Convert.ToInt32(v2_1.Text)))
+                {
+                    Result_1.BackColor = Color.Green;
+                }
+                else if (Result_1.Value != Math.Abs(Convert.ToInt32(v1_1.Text) - Convert.ToInt32(v2_1.Text)))
+                {
+                    Result_1.BackColor = Color.Red;
+                }
+            }
+            else if (sign_1.Text == "/")
+            {
+                if (Result_1.Value == Math.Abs(Convert.ToInt32(v1_1.Text) / Convert.ToInt32(v2_1.Text)))
+                {
+                    Result_1.BackColor = Color.Green;
+                }
+                else if (Result_1.Value != Math.Abs(Convert.ToInt32(v1_1.Text) / Convert.ToInt32(v2_1.Text)))
+                {
+                    Result_1.BackColor = Color.Red;
+                }
+            }
+            else if (sign_1.Text == "*")
+            {
+                if (Result_1.Value == Math.Abs(Convert.ToInt32(v1_1.Text) * Convert.ToInt32(v2_1.Text)))
+                {
+                    Result_1.BackColor = Color.Green;
+                }
+                else if (Result_1.Value != Math.Abs(Convert.ToInt32(v1_1.Text) * Convert.ToInt32(v2_1.Text)))
+                {
+                    Result_1.BackColor = Color.Red;
+                }
+            }
+            ////////
+            if (sign_2.Text == "+")
+            {
+                if (Result_2.Value == Math.Abs(Convert.ToInt32(v1_2.Text) + Convert.ToInt32(v2_2.Text)))
+                {
+                    Result_2.BackColor = Color.Green;
+                }
+                else if (Result_2.Value != Math.Abs(Convert.ToInt32(v1_2.Text) + Convert.ToInt32(v2_2.Text)))
+                {
+                    Result_2.BackColor = Color.Red;
+                }
+            }
+            else if (sign_2.Text == "-")
+            {
+                if (Result_2.Value == Math.Abs(Convert.ToInt32(v1_2.Text) - Convert.ToInt32(v2_2.Text)))
+                {
+                    Result_2.BackColor = Color.Green;
+                }
+                else if (Result_2.Value != Math.Abs(Convert.ToInt32(v1_2.Text) - Convert.ToInt32(v2_2.Text)))
+                {
+                    Result_2.BackColor = Color.Red;
+                }
+            }
+            else if (sign_2.Text == "/")
+            {
+                if (Result_2.Value == Math.Abs(Convert.ToInt32(v1_2.Text) / Convert.ToInt32(v2_2.Text)))
+                {
+                    Result_2.BackColor = Color.Green;
+                }
+                else if (Result_2.Value != Math.Abs(Convert.ToInt32(v1_2.Text) / Convert.ToInt32(v2_2.Text)))
+                {
+                    Result_2.BackColor = Color.Red;
+                }
+            }
+            else if (sign_2.Text == "*")
+            {
+                if (Result_2.Value == Math.Abs(Convert.ToInt32(v1_2.Text) * Convert.ToInt32(v2_2.Text)))
+                {
+                    Result_2.BackColor = Color.Green;
+                }
+                else if (Result_2.Value != Math.Abs(Convert.ToInt32(v1_2.Text) * Convert.ToInt32(v2_2.Text)))
+                {
+                    Result_2.BackColor = Color.Red;
+                }
+            }
+        }
         private void Finish_Click(object sender, EventArgs e)
         {
             Finish.Visible = false;
             Start.Visible = true;
+            check();
         }
 
         public void StartQuz()
         {
-            v1.Text = rnd.Next(1, 51).ToString();
-            v1_.Text = rnd.Next(1, 51).ToString();
-            v1_1.Text = rnd.Next(1, 51).ToString();
-            v1_2.Text = rnd.Next(1, 51).ToString();
-            v2.Text = rnd.Next(1, 51).ToString();
-            v2_.Text = rnd.Next(1, 51).ToString();
-            v2_1.Text = rnd.Next(1, 51).ToString();
-            v2_2.Text = rnd.Next(1, 51).ToString();
+            Result.BackColor = Color.White;
+            Result_.BackColor = Color.White;
+            Result_1.BackColor = Color.White;
+            Result_2.BackColor = Color.White;
+            v1.Text = rnd.Next(1, 20).ToString();
+            v1_.Text = rnd.Next(1, 20).ToString();
+            v1_1.Text = rnd.Next(1, 20).ToString();
+            v1_2.Text = rnd.Next(1, 20).ToString();
+            v2.Text = rnd.Next(1, 20).ToString();
+            v2_.Text = rnd.Next(1, 20).ToString();
+            v2_1.Text = rnd.Next(1, 20).ToString();
+            v2_2.Text = rnd.Next(1, 20).ToString();
         }
         private void Start_Click(object sender, EventArgs e)
         {
