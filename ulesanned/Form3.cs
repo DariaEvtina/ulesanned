@@ -21,7 +21,7 @@ namespace ulesanned
         Label v1_1; Label v2_1; Label sign_1; Label equel_1; NumericUpDown Result_1;
         Label v1_2; Label v2_2; Label sign_2; Label equel_2; NumericUpDown Result_2;
         Timer timer;
-        int timeLeft=2000;
+        int timeLeft=1000;
         char[] sings = new char[] { '-', '+', '/', '*' };
         public Form3()
         {
@@ -68,11 +68,10 @@ namespace ulesanned
             for (int i = 0; i < 4; i++)
             {
                 tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-                tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3F));
-                tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3F));
-                tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3F));
-                tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3F));
-                tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3F));
+                for (int e = 0; e < 4; e++)
+                {
+                    tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3F));
+                }
             }
             Result_1 = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18), Minimum = -20 };
             v1_1 = new Label

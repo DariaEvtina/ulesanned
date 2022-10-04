@@ -18,7 +18,7 @@ namespace ulesanned
         PictureBox pc;
         public Form2()
         {
-            this.Size = new Size(700, 500);
+            this.Size = new Size(770, 500);
             this.Text = "PICTURE VIEWER";
             this.MaximizeBox = false;
             TableLayoutPanel tlp = new TableLayoutPanel
@@ -31,8 +31,8 @@ namespace ulesanned
             };
             tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,15F));
             tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 85F));
-            tlp.RowStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
-            tlp.RowStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
+            tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             pc = new PictureBox
             {
                 BorderStyle=BorderStyle.Fixed3D,
