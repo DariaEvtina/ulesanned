@@ -21,7 +21,7 @@ namespace ulesanned
         public login()
         {
             this.Text = "login vorm";
-            this.Size= new Size(300,400);
+            this.Size= new Size(350,300);
             Label pass=new Label
             {
                 Text="nimi",
@@ -63,15 +63,22 @@ namespace ulesanned
                 Size = new Size(150, 50),
                 Location = new Point(70, 200),
             };
-            this.Controls.Add(pass);
-            this.Controls.Add(name);
-            this.Controls.Add(username);
-            this.Controls.Add(password);
-            this.Controls.Add(reg);
-            this.Controls.Add(log);
+            TableLayoutPanel tlp = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                RowCount = 4,
+                ColumnCount = 2,
+            };
+            tlp.Controls.Add(pb,0,0);
+            tlp.Controls.Add(name, 0, 1);
+            tlp.Controls.Add(pass, 0, 2);
+            tlp.Controls.Add(username, 1, 1);
+            tlp.Controls.Add(password, 1, 2);
+            tlp.Controls.Add(reg, 1, 3);
+            tlp.Controls.Add(log, 0, 3);
+            this.Controls.Add(tlp);
             reg.Click += Reg_Click;
             log.Click += Log_Click;
-            this.Controls.Add(pb);
         }
 
         private void Log_Click(object sender, EventArgs e)

@@ -13,12 +13,15 @@ namespace ulesanned
 {
     public partial class registr : Form
     {
+        
+        PictureBox pb;
         TextBox username;
         TextBox password;
         RadioButton mees;
         RadioButton naine;
         NumericUpDown dtp;
         string sugu;
+        string avatar=@"..\..\avatar.png";
         public registr()
         {
             this.Text = "registrerimine vorm";
@@ -54,7 +57,7 @@ namespace ulesanned
                 Size = new Size(90, 20),
                 Location = new Point(10, 173),
             };
-            PictureBox pb = new PictureBox
+            pb = new PictureBox
             {
                 Size = new Size(120, 120),
                 Location = new Point(80, 10),
@@ -89,7 +92,11 @@ namespace ulesanned
                 RowCount = 6,
                 ColumnCount = 2,
             };
-
+            Button load_img = new Button
+            {
+                Text="lisa pilt"
+            };
+            load_img.Click += Load_img_Click;
             tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
@@ -99,6 +106,7 @@ namespace ulesanned
             tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
             tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             tlp.Controls.Add(pb, 0, 0);
+            tlp.Controls.Add(load_img, 1, 0);
             tlp.Controls.Add(name,0,1);
             tlp.Controls.Add(username, 1, 1);
             tlp.Controls.Add(pass, 0, 2);
@@ -112,6 +120,19 @@ namespace ulesanned
             reg.Click += Reg_Click;
             log.Click += Log_Click;
             this.Controls.Add(tlp);
+        }
+
+        private void Load_img_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "JPEG Files(*.jpg) | *.jpg | PNG Files(*.png) | *.png | BMP Files(*.bmp) | *.bmp | All files(*.*) | *.*";
+            ofd.Title = "Select a picture file";
+            ofd.ShowDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                pb.Load(ofd.FileName);
+                avatar = ofd.FileName;
+            }
         }
 
         private void Mees_CheckedChanged(object sender, EventArgs e)
@@ -129,7 +150,7 @@ namespace ulesanned
 
         private void Reg_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"Nimi {username.Text} pass: {password.Text} Sugu: {sugu} Vanus: {dtp.Value}");
+            MessageBox.Show($"Nimi {username.Text} pass: {password.Text} Sugu: {sugu} Vanus: {dtp.Value} Avatr: {avatar}");
         }
     
 
