@@ -13,5 +13,6 @@ namespace ulesanned
         public string email { get; set; }
         public string sugu { get; set; }
         public int vanus { get; set; }
+        public string avatar { get; set; }
     }
 }

@@ -17,15 +17,21 @@ namespace ulesanned
         TextBox password;
         RadioButton mees;
         RadioButton naine;
-        DateTimePicker dtp;
+        NumericUpDown dtp;
+        string sugu;
         public registr()
         {
             this.Text = "registrerimine vorm";
             this.Size = new Size(300, 460);
-            dtp= new DateTimePicker 
+            dtp= new NumericUpDown
             { 
-                Location = new Point(50,240)
-            };  
+                Size = new Size(100, 20),
+                Maximum=116
+            };
+            Label lbl = new Label
+            {
+                Text="vanus",
+            };
             mees = new RadioButton
             {
                 Text="mees"
@@ -34,13 +40,8 @@ namespace ulesanned
             {
                 Text = "naine"
             };
-            RadioButton[] sugu = new RadioButton[] { mees, naine };
-            FlowLayoutPanel flp = new FlowLayoutPanel
-            {
-                Size=new Size(280,30),
-                Location=new Point(10,190)
-            };
-            flp.Controls.AddRange(sugu);
+            mees.CheckedChanged += new System.EventHandler(Mees_CheckedChanged);
+            naine.CheckedChanged += new System.EventHandler(Mees_CheckedChanged);
             Label pass = new Label
             {
                 Text = "nimi",
@@ -82,17 +83,41 @@ namespace ulesanned
                 Size = new Size(150, 50),
                 Location = new Point(70, 350),
             };
-            this.Controls.Add(pass);
-            this.Controls.Add(name);
-            this.Controls.Add(username);
-            this.Controls.Add(password);
-            this.Controls.Add(reg);
-            this.Controls.Add(log);
-            this.Controls.Add(flp);
+            TableLayoutPanel tlp = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                RowCount = 6,
+                ColumnCount = 2,
+            };
+
+            tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tlp.Controls.Add(pb, 0, 0);
+            tlp.Controls.Add(name,0,1);
+            tlp.Controls.Add(username, 1, 1);
+            tlp.Controls.Add(pass, 0, 2);
+            tlp.Controls.Add(password, 1, 2);
+            tlp.Controls.Add(naine, 0, 3);
+            tlp.Controls.Add(mees, 1, 3);
+            tlp.Controls.Add(lbl, 0, 4);
+            tlp.Controls.Add(dtp, 1, 4);
+            tlp.Controls.Add(reg, 0, 5);
+            tlp.Controls.Add(log, 1, 5);
             reg.Click += Reg_Click;
             log.Click += Log_Click;
-            this.Controls.Add(pb);
-            this.Controls.Add(dtp);
+            this.Controls.Add(tlp);
+        }
+
+        private void Mees_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton sugu_checked= (RadioButton) sender;
+            sugu=sugu_checked.Text;
         }
 
         private void Log_Click(object sender, EventArgs e)
@@ -104,7 +129,7 @@ namespace ulesanned
 
         private void Reg_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show($"Nimi {username.Text} pass: {password.Text} Sugu: {sugu} Vanus: {dtp.Value}");
         }
     
 

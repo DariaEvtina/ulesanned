@@ -96,7 +96,6 @@
       <DependentUpon>Form4.cs</DependentUpon>
     </Compile>
     <Compile Include="kasutaja.cs" />
-    <Compile Include="kasutajaContext.cs" />
     <Compile Include="kasutajadDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
