@@ -15,9 +15,9 @@ namespace ulesanned
         {
             Database.CreateIfNotExists();
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        /*protected override void OnConfiguring(DbContext optionsBuilder)
         {
             optionsBuilder.UseSqlite("Data Source=kasutaja.db");
-        }
+        }*/
     }
 }

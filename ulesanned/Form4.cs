@@ -29,7 +29,7 @@ namespace ulesanned
         {
             time = 0;
             this.Size = new Size(550, 550);
-            this.Text = "MATCHING GAME";
+            this.Text = "sobitamise mäng";
             tlp = new TableLayoutPanel
             {
                 Dock = DockStyle.Fill,
@@ -157,7 +157,7 @@ namespace ulesanned
             // If the loop didn’t return, it didn't find
             // any unmatched icons
             // That means the user won. Show a message and close the form
-            MessageBox.Show($"You matched all the icons! Youre time: {time} seconds", "Congratulations");
+            MessageBox.Show($"Sa sobitasid kõik ikoonid! Sul on aeg: {time} sekondit", "palju õnne");
             timeLeft.Stop();
             time = 0;
             Close();

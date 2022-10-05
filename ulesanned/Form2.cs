@@ -19,7 +19,7 @@ namespace ulesanned
         public Form2()
         {
             this.Size = new Size(770, 500);
-            this.Text = "PICTURE VIEWER";
+            this.Text = "pilt vaatama";
             this.MaximizeBox = false;
             TableLayoutPanel tlp = new TableLayoutPanel
             {
@@ -41,19 +41,19 @@ namespace ulesanned
             };
             cb = new System.Windows.Forms.CheckBox
             {
-                Text="Strech"
+                Text="Venitada"
             };
             cb.CheckedChanged += Cb_CheckedChanged;
             Button close = new Button
             {
-                Text="Close",
+                Text="Sulge",
                 BackColor = Color.White
 
             };
             close.Click += new System.EventHandler(btn_Click);
             Button bc = new Button
             {
-                Text = "Set Backgroung color",
+                Text = "määrake taustavärv",
                 Size = new Size(140,25),
                 BackColor = Color.White
 
@@ -61,7 +61,7 @@ namespace ulesanned
             bc.Click += new System.EventHandler(btn_Click);
             Button clear = new Button
             {
-                Text = "Clear the picture",
+                Text = "puhastage pilt",
                 Size = new Size(110, 25),
                 BackColor = Color.White
 
@@ -69,7 +69,7 @@ namespace ulesanned
             clear.Click += new System.EventHandler(btn_Click);
             Button show = new Button
             {
-                Text = "Show a picture",
+                Text = "näita pilt",
                 Size = new Size(110, 25),
                 BackColor = Color.White
 
@@ -98,17 +98,17 @@ namespace ulesanned
         private void btn_Click(object sender, EventArgs e)
         {
             Button click =(Button) sender;
-            if (click.Text== "Set Backgroung color")
+            if (click.Text== "määrake taustavärv")
             {
                 ColorDialog cd = new ColorDialog();
                 cd.ShowDialog();
                 this.BackColor = cd.Color;
             }
-            else if (click.Text == "Clear the picture")
+            else if (click.Text == "puhastage pilt")
             {
                 pc.Image = null;
             }
-            else if (click.Text == "Show a picture")
+            else if (click.Text == "näita pilt")
             {
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.Filter = "JPEG Files(*.jpg) | *.jpg | PNG Files(*.png) | *.png | BMP Files(*.bmp) | *.bmp | All files(*.*) | *.*";
@@ -121,7 +121,7 @@ namespace ulesanned
 
 
             }
-            else if (click.Text == "Close")
+            else if (click.Text == "Sulge")
             {
                 this.Close();
             }

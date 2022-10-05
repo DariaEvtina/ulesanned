@@ -12,6 +12,7 @@ namespace ulesanned
 {
     public partial class Form1 : Form
     {
+        kasutaja kasutaja; 
         public Form1()
         {
             this.Size = new Size(301,350);
@@ -34,9 +35,17 @@ namespace ulesanned
                 Size = new Size(285, 50),
                 Location = new Point(0, 110)
             };
+            Button login = new Button
+            {
+                Text = "logi sisse",
+                Size = new Size(285, 50),
+                Location = new Point(0, 165)
+            };
             UL1.Click += new System.EventHandler( UL_Click);
             UL2.Click += new System.EventHandler(UL_Click);
             UL3.Click += new System.EventHandler(UL_Click);
+            login.Click += new System.EventHandler(UL_Click);
+            this.Controls.Add(login);
             this.Controls.Add(UL1);
             this.Controls.Add(UL2);
             this.Controls.Add(UL3);
@@ -45,20 +54,26 @@ namespace ulesanned
         public void UL_Click(object sender, EventArgs e)
         {
             Button btn_click = (Button)sender;
-            if (btn_click.Text== "ulesanne #1")
+
+            if (btn_click.Text == "ulesanne #1")
             {
-                Form2 ul1 = new Form2();
-                ul1.Show();
+                    Form2 ul1 = new Form2();
+                    ul1.Show();
             }
             else if (btn_click.Text == "ulesanne #2")
             {
-                Form3 ul2 = new Form3();
-                ul2.Show();
+                    Form3 ul2 = new Form3();
+                    ul2.Show();
             }
             else if (btn_click.Text == "ulesanne #3")
             {
-                Form4 ul3 = new Form4();
-                ul3.Show();
+                    Form4 ul3 = new Form4();
+                    ul3.Show();
+            }
+            else if (btn_click.Text == "logi sisse")
+            {
+                    login log = new login();
+                    log.Show();
             }
         }
 

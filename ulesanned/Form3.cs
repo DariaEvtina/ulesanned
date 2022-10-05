@@ -26,7 +26,7 @@ namespace ulesanned
         public Form3()
         {
             this.Size = new Size(500, 400);
-            this.Text = "MATH QUIZ";
+            this.Text = "matimaatika viktoriin";
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             Timelb = new Label
@@ -39,7 +39,7 @@ namespace ulesanned
             };
             Label lb = new Label
             {
-                Text="Time Left",
+                Text="aega jäänud",
                 Size = new Size(150, 30),
                 Location = new Point(165, 10),
                 Font = new Font("Arial", 16)
@@ -55,12 +55,12 @@ namespace ulesanned
             };
             Start = new Button
             {
-                Text="Start quiz",
+                Text="alusta viktoriini",
                 Location = new Point(200,325)
             };
             Finish = new Button
             {
-                Text = "Finish quiz",
+                Text = "lõpeta viktoriin",
                 Location = new Point(200, 325),
                 Visible = false
             };
@@ -225,15 +225,15 @@ namespace ulesanned
             if (timeLeft > 0)
             {
                 timeLeft = timeLeft - 1;
-                Timelb.Text = timeLeft + " seconds";
+                Timelb.Text = timeLeft + " sekundit";
             }
             else
             {
                 // If the user ran out of time, stop the timer, show
                 // a MessageBox, and fill in the answers.
                 timer.Stop();
-                Timelb.Text = "Time's up!";
-                MessageBox.Show("You didn't finish in time.", "Sorry!");
+                Timelb.Text = "aeg on läbi!";
+                MessageBox.Show("sa ei lõpetanud õigeks ajaks.", "Vabandust!");
             }
         }
 
