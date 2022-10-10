@@ -110,6 +110,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>kasutajadDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="kasutajadDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>kasutajadDataSet11.xsd</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +169,17 @@
     </None>
     <None Include="kasutajadDataSet.xss">
       <DependentUpon>kasutajadDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="kasutajadDataSet11.xsc">
+      <DependentUpon>kasutajadDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="kasutajadDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>kasutajadDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="kasutajadDataSet11.xss">
+      <DependentUpon>kasutajadDataSet11.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

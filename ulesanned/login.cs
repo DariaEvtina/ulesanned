@@ -24,13 +24,13 @@ namespace ulesanned
             this.Size= new Size(350,300);
             Label pass=new Label
             {
-                Text="nimi",
+                Text= "salasõna",
                 Size = new Size(50, 20),
                 Location = new Point(10, 143)
             };
             Label name = new Label
             {
-                Text = "salasõna",
+                Text = "e-post",
                 Size = new Size(90, 20),
                 Location = new Point(10, 173),
             };
@@ -38,6 +38,7 @@ namespace ulesanned
             {
                Size= new Size(120,120),
                Location=new Point(80,10),
+                SizeMode = PictureBoxSizeMode.StretchImage
             };
             pb.Load(@"..\..\img\avatar.png");
             username = new TextBox

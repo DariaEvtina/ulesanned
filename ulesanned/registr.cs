@@ -13,7 +13,7 @@ namespace ulesanned
 {
     public partial class registr : Form
     {
-        
+        //C:\Users\opilane\source\repos\dariaEvtinaTARpv20\ulesanned\ulesanned\img\1.jpg
         PictureBox pb;
         TextBox username;
         TextBox password;
@@ -61,12 +61,14 @@ namespace ulesanned
             {
                 Size = new Size(120, 120),
                 Location = new Point(80, 10),
+                SizeMode = PictureBoxSizeMode.StretchImage
             };
             pb.Load(@"..\..\img\avatar.png");
             username = new TextBox
             {
                 Size = new Size(150, 10),
-                Location = new Point(100, 140)
+                Location = new Point(100, 140),
+                
             };
             password = new TextBox
             {

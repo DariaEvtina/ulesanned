@@ -41,11 +41,19 @@ namespace ulesanned
                 Size = new Size(285, 50),
                 Location = new Point(0, 165)
             };
+            Button admin_vorm = new Button
+            {
+                Text = "admenistreerimine",
+                Size = new Size(285, 50),
+                Location = new Point(0, 220)
+            };
             UL1.Click += new System.EventHandler( UL_Click);
             UL2.Click += new System.EventHandler(UL_Click);
             UL3.Click += new System.EventHandler(UL_Click);
             login.Click += new System.EventHandler(UL_Click);
+            admin_vorm.Click += new System.EventHandler(UL_Click);
             this.Controls.Add(login);
+            this.Controls.Add(admin_vorm);
             this.Controls.Add(UL1);
             this.Controls.Add(UL2);
             this.Controls.Add(UL3);
@@ -74,6 +82,11 @@ namespace ulesanned
             {
                     login log = new login();
                     log.Show();
+            }
+            else if (btn_click.Text == "admenistreerimine")
+            {
+                admin admin_ =new admin();
+                admin_.Show();
             }
         }
 

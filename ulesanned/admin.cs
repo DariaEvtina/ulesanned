@@ -15,11 +15,11 @@ namespace ulesanned
         public admin()
         {
             this.Text = "admin vorm";
-            this.Size = new Size(600, 500);
+            this.Size = new Size(900, 500);
             TableLayoutPanel tlp = new TableLayoutPanel
             {
                 Dock = DockStyle.Fill,
-                RowCount = 6,
+                RowCount = 2,
                 ColumnCount = 2,
             };
         }
