@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="kasutajadConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="kasutajadConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ulesanned.Properties.Settings.GlobalReference.Default.kasutajadConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="kasutajadConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="kasutajadConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ulesanned.Properties.Settings.GlobalReference.Default.kasutajadConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="kasutajadTableAdapter" GeneratorDataComponentClassName="kasutajadTableAdapter" Name="kasutajad" UserDataComponentName="kasutajadTableAdapter">
@@ -95,44 +95,44 @@ SELECT ID, nimi, email, sugu, vanus, isadmin, avatar, salasona FROM kasutajad WH
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="kasutajadDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="kasutajadDataSet1" msprop:Generator_DataSetName="kasutajadDataSet1">
+  <xs:element name="kasutajadDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="kasutajadDataSet1" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="kasutajadDataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="kasutajad" msprop:Generator_RowEvHandlerName="kasutajadRowChangeEventHandler" msprop:Generator_RowDeletedName="kasutajadRowDeleted" msprop:Generator_RowDeletingName="kasutajadRowDeleting" msprop:Generator_RowEvArgName="kasutajadRowChangeEvent" msprop:Generator_TablePropName="kasutajad" msprop:Generator_RowChangedName="kasutajadRowChanged" msprop:Generator_RowChangingName="kasutajadRowChanging" msprop:Generator_TableClassName="kasutajadDataTable" msprop:Generator_RowClassName="kasutajadRow" msprop:Generator_TableVarName="tablekasutajad" msprop:Generator_UserTableName="kasutajad">
+        <xs:element name="kasutajad" msprop:Generator_RowEvHandlerName="kasutajadRowChangeEventHandler" msprop:Generator_RowDeletedName="kasutajadRowDeleted" msprop:Generator_RowDeletingName="kasutajadRowDeleting" msprop:Generator_RowEvArgName="kasutajadRowChangeEvent" msprop:Generator_TablePropName="kasutajad" msprop:Generator_RowChangedName="kasutajadRowChanged" msprop:Generator_UserTableName="kasutajad" msprop:Generator_RowChangingName="kasutajadRowChanging" msprop:Generator_RowClassName="kasutajadRow" msprop:Generator_TableClassName="kasutajadDataTable" msprop:Generator_TableVarName="tablekasutajad">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="nimi" msprop:Generator_ColumnPropNameInRow="nimi" msprop:Generator_ColumnPropNameInTable="nimiColumn" msprop:Generator_ColumnVarNameInTable="columnnimi" msprop:Generator_UserColumnName="nimi">
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" />
+              <xs:element name="nimi" msprop:Generator_ColumnPropNameInTable="nimiColumn" msprop:Generator_ColumnPropNameInRow="nimi" msprop:Generator_UserColumnName="nimi" msprop:Generator_ColumnVarNameInTable="columnnimi">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="90" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="email" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_UserColumnName="email">
+              <xs:element name="email" msprop:Generator_ColumnPropNameInTable="emailColumn" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_UserColumnName="email" msprop:Generator_ColumnVarNameInTable="columnemail">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="90" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="sugu" msprop:Generator_ColumnPropNameInRow="sugu" msprop:Generator_ColumnPropNameInTable="suguColumn" msprop:Generator_ColumnVarNameInTable="columnsugu" msprop:Generator_UserColumnName="sugu">
+              <xs:element name="sugu" msprop:Generator_ColumnPropNameInTable="suguColumn" msprop:Generator_ColumnPropNameInRow="sugu" msprop:Generator_UserColumnName="sugu" msprop:Generator_ColumnVarNameInTable="columnsugu">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="vanus" msprop:Generator_ColumnPropNameInRow="vanus" msprop:Generator_ColumnPropNameInTable="vanusColumn" msprop:Generator_ColumnVarNameInTable="columnvanus" msprop:Generator_UserColumnName="vanus" type="xs:int" />
-              <xs:element name="isadmin" msprop:Generator_ColumnPropNameInRow="isadmin" msprop:Generator_ColumnPropNameInTable="isadminColumn" msprop:Generator_ColumnVarNameInTable="columnisadmin" msprop:Generator_UserColumnName="isadmin" type="xs:int" minOccurs="0" />
-              <xs:element name="avatar" msprop:Generator_ColumnPropNameInRow="avatar" msprop:Generator_ColumnPropNameInTable="avatarColumn" msprop:Generator_ColumnVarNameInTable="columnavatar" msprop:Generator_UserColumnName="avatar" minOccurs="0">
+              <xs:element name="vanus" msprop:Generator_ColumnPropNameInTable="vanusColumn" msprop:Generator_ColumnPropNameInRow="vanus" msprop:Generator_UserColumnName="vanus" msprop:Generator_ColumnVarNameInTable="columnvanus" type="xs:int" />
+              <xs:element name="isadmin" msprop:Generator_ColumnPropNameInTable="isadminColumn" msprop:Generator_ColumnPropNameInRow="isadmin" msprop:Generator_UserColumnName="isadmin" msprop:Generator_ColumnVarNameInTable="columnisadmin" type="xs:int" minOccurs="0" />
+              <xs:element name="avatar" msprop:Generator_ColumnPropNameInTable="avatarColumn" msprop:Generator_ColumnPropNameInRow="avatar" msprop:Generator_UserColumnName="avatar" msprop:Generator_ColumnVarNameInTable="columnavatar" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="8000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="salasona" msprop:Generator_ColumnPropNameInRow="salasona" msprop:Generator_ColumnPropNameInTable="salasonaColumn" msprop:Generator_ColumnVarNameInTable="columnsalasona" msprop:Generator_UserColumnName="salasona" minOccurs="0">
+              <xs:element name="salasona" msprop:Generator_ColumnPropNameInTable="salasonaColumn" msprop:Generator_ColumnPropNameInRow="salasona" msprop:Generator_UserColumnName="salasona" msprop:Generator_ColumnVarNameInTable="columnsalasona" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />

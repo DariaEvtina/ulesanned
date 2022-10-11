@@ -15,6 +15,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,7 +28,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -105,12 +105,7 @@
       <DependentUpon>Form4.cs</DependentUpon>
     </Compile>
     <Compile Include="kasutaja.cs" />
-    <Compile Include="kasutajadDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>kasutajadDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="kasutajadDataSet11.Designer.cs">
+    <Compile Include="kasutajadDataSet111.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>kasutajadDataSet11.xsd</DependentUpon>
@@ -159,23 +154,12 @@
     <EmbeddedResource Include="registr.resx">
       <DependentUpon>registr.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="kasutajadDataSet.xsc">
-      <DependentUpon>kasutajadDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="kasutajadDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>kasutajadDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="kasutajadDataSet.xss">
-      <DependentUpon>kasutajadDataSet.xsd</DependentUpon>
-    </None>
     <None Include="kasutajadDataSet11.xsc">
       <DependentUpon>kasutajadDataSet11.xsd</DependentUpon>
     </None>
     <None Include="kasutajadDataSet11.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>kasutajadDataSet11.Designer.cs</LastGenOutput>
+      <LastGenOutput>kasutajadDataSet111.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="kasutajadDataSet11.xss">

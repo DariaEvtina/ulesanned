@@ -84,7 +84,7 @@ namespace ulesanned
 
         private void Log_Click(object sender, EventArgs e)
         {
-            
+            ApplicationContext con = new ApplicationContext();
         }
 
         private void Reg_Click(object sender, EventArgs e)

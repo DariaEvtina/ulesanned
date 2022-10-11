@@ -11,11 +11,18 @@ namespace ulesanned
 
     internal class ApplicationContext : DbContext
     {
-        public string connection()
+        /*public string connection()
         {
             return @"Data Source=(LocalDB)\\\\MSSQLLocalDB;AttachDbFilename=C:\\\\Users\\\\opilane\\\\source\\\\repos\\\\dariaEvtinaTARpv20\\\\ulesanned\\\\ulesanned\\\\kasutajad.mdf;Integrated Security=True;Connect Timeout=30\";
+        }*/
+        public ApplicationContext() : base("kasutajad")
+        {
+            if (Database.Exists("kasutajad"))
+            {
+                Database.SetInitializer(new DropCreateDatabaseAlways<ApplicationContext>());
+            }
         }
-        public DbSet<kasutaja> Logins => Set<kasutaja>();
+        public DbSet<kasutaja> kasutajad  {get; set;}
         //public ApplicationContext() => Database.EnsureCreated();
 
         /*protected override void OnConfiguring(DbConfiguration optionsBuilder)
