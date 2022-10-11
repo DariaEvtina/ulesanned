@@ -22,7 +22,7 @@ namespace ulesanned
                 Database.SetInitializer(new DropCreateDatabaseAlways<ApplicationContext>());
             }
         }
-        public DbSet<kasutaja> kasutajad  {get; set;}
+        public DbSet<kasutaja> kasutajad1{get; set;}
         //public ApplicationContext() => Database.EnsureCreated();
 
         /*protected override void OnConfiguring(DbConfiguration optionsBuilder)

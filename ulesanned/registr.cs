@@ -17,6 +17,7 @@ namespace ulesanned
         PictureBox pb;
         TextBox username;
         TextBox password;
+        TextBox email;
         RadioButton mees;
         RadioButton naine;
         NumericUpDown dtp;
@@ -47,13 +48,19 @@ namespace ulesanned
             naine.CheckedChanged += new System.EventHandler(Mees_CheckedChanged);
             Label pass = new Label
             {
-                Text = "nimi",
+                Text = "salasõna",
+                Size = new Size(50, 20),
+                Location = new Point(10, 143)
+            };
+            Label e_post = new Label
+            {
+                Text = "e-post",
                 Size = new Size(50, 20),
                 Location = new Point(10, 143)
             };
             Label name = new Label
             {
-                Text = "salasõna",
+                Text = "nimi",
                 Size = new Size(90, 20),
                 Location = new Point(10, 173),
             };
@@ -69,6 +76,12 @@ namespace ulesanned
                 Size = new Size(150, 10),
                 Location = new Point(100, 140),
                 
+            };
+            email = new TextBox
+            {
+                Size = new Size(150, 10),
+                Location = new Point(100, 140),
+
             };
             password = new TextBox
             {
@@ -91,7 +104,7 @@ namespace ulesanned
             TableLayoutPanel tlp = new TableLayoutPanel
             {
                 Dock = DockStyle.Fill,
-                RowCount = 6,
+                RowCount = 7,
                 ColumnCount = 2,
             };
             Button load_img = new Button
@@ -102,6 +115,7 @@ namespace ulesanned
             tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
             tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
             tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
             tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
@@ -117,8 +131,10 @@ namespace ulesanned
             tlp.Controls.Add(mees, 1, 3);
             tlp.Controls.Add(lbl, 0, 4);
             tlp.Controls.Add(dtp, 1, 4);
-            tlp.Controls.Add(reg, 0, 5);
-            tlp.Controls.Add(log, 1, 5);
+            tlp.Controls.Add(e_post, 0, 5);
+            tlp.Controls.Add(email, 1, 5);
+            tlp.Controls.Add(reg, 0, 6);
+            tlp.Controls.Add(log, 1, 6);
             reg.Click += Reg_Click;
             log.Click += Log_Click;
             this.Controls.Add(tlp);
@@ -152,7 +168,18 @@ namespace ulesanned
 
         private void Reg_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"Nimi {username.Text} pass: {password.Text} Sugu: {sugu} Vanus: {dtp.Value} Avatr: {avatar}");
+            ApplicationContext con = new ApplicationContext();
+            kasutaja uss_konto = new kasutaja();
+            uss_konto.nimi=username.Text.Trim();
+            uss_konto.salasona=password.Text.Trim();
+            uss_konto.sugu = sugu;
+            uss_konto.vanus = (int)dtp.Value;
+            uss_konto.email=email.Text.Trim();
+            uss_konto.avatar = avatar;
+            uss_konto.isadmin = 0;
+            con.kasutajad1.Add(uss_konto);
+            con.SaveChangesAsync();
+            MessageBox.Show($"Nimi {username.Text.Trim()} pass: {password.Text.Trim()} Sugu: {sugu} Vanus: {dtp.Value} Avatr: {avatar}");
         }
     
 

@@ -105,11 +105,6 @@
       <DependentUpon>Form4.cs</DependentUpon>
     </Compile>
     <Compile Include="kasutaja.cs" />
-    <Compile Include="kasutajadDataSet111.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>kasutajadDataSet11.xsd</DependentUpon>
-    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,17 +149,6 @@
     <EmbeddedResource Include="registr.resx">
       <DependentUpon>registr.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="kasutajadDataSet11.xsc">
-      <DependentUpon>kasutajadDataSet11.xsd</DependentUpon>
-    </None>
-    <None Include="kasutajadDataSet11.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>kasutajadDataSet111.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="kasutajadDataSet11.xss">
-      <DependentUpon>kasutajadDataSet11.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -183,13 +167,6 @@
     <Content Include="img\1.jpg" />
     <Content Include="img\avatar.png" />
     <Content Include="img\index.jpg" />
-    <Content Include="kasutajad.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="kasutajad_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>kasutajad.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
