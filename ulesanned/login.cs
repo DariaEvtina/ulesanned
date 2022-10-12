@@ -85,7 +85,7 @@ namespace ulesanned
         private void Log_Click(object sender, EventArgs e)
         {
             ApplicationContext con = new ApplicationContext();
-            foreach (kasutaja kas in con.kasutajad1)
+            /*foreach (kasutaja kas in con.kasutajad1)
             {
                 if (kas.email==username.Text.Trim() && kas.salasona==password.Text.Trim())
                 {
@@ -94,11 +94,19 @@ namespace ulesanned
                     Form1 w = new Form1(kas);
                     w.Show();
                 }
+            }*/
+            kasutaja log_kas = con.kasutajad1.Find(kas.ID);
+            if (log_kas!=null)
+            {
+                this.Close();
+                this.kas = kas;
+                Form1 w = new Form1(kas);
+                w.Show();
             }
-            if (kas==null)
+            else
             {
                 MessageBox.Show("Kasutaja ei leinud", "error");
-            }
+            }   
         }
 
         private void Reg_Click(object sender, EventArgs e)
