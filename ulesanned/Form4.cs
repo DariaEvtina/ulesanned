@@ -21,6 +21,7 @@ namespace ulesanned
         Label secondClicked = null;
         TableLayoutPanel tlp;
         Random rnd=new Random();
+        kasutaja kas=null;
         List<string> ICONS = new List<string>()
         {
             "!","!","N","N",",",",","k","k","b","b","v","v","w","w","z","z"
@@ -75,9 +76,10 @@ namespace ulesanned
         }
         public Form4(kasutaja kas)
         {
+            this.kas = kas;
             time = 0;
             this.Size = new Size(550, 550);
-            this.Text = "sobitamise mäng "+kas.nimi;
+            this.Text = "sobitamise mäng";
             tlp = new TableLayoutPanel
             {
                 Dock = DockStyle.Fill,
@@ -205,8 +207,28 @@ namespace ulesanned
             // If the loop didn’t return, it didn't find
             // any unmatched icons
             // That means the user won. Show a message and close the form
-            MessageBox.Show($"Sa sobitasid kõik ikoonid! Sul on aeg: {time} sekondit", "palju õnne");
+            if (kas!=null)
+            {
+                MessageBox.Show($"Sa sobitasid kõik ikoonid!{kas.nimi} sul on aeg: {time} sekondit", "palju õnne");
+            }
+            else
+            {
+                MessageBox.Show($"Sa sobitasid kõik ikoonid! Sul on aeg: {time} sekondit", "palju õnne");
+            }
             timeLeft.Stop();
+            ApplicationContext con = new ApplicationContext();
+            rekordit rek = new rekordit();
+            rek.mang = this.Text;
+            rek.rekord = $"{time} sekondit";
+            if (kas != null)
+            {
+                rek.kasutaja = kas.nimi + " " + kas.email;
+            }
+            else
+            {
+                rek.kasutaja = "külaline";
+            }
+            con.rekordit1.Add(rek);
             time = 0;
             Close();
 

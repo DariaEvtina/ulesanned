@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace ulesanned
 {
-    internal class rekordit
+    public class rekordit
     {
+        public int ID { get; set; }
+        public string mang { get; set; }
+        public string rekord { get; set; }
+        public string kasutaja { get; set; }
     }
 }
