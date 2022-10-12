@@ -7,7 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using Button = System.Windows.Forms.Button;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace ulesanned
 {
@@ -111,6 +114,9 @@ namespace ulesanned
             {
                 Text="lisa pilt"
             };
+            email.KeyPress += Email_KeyPress;
+            password.KeyPress += Password_KeyPress;
+            username.KeyPress += Username_KeyPress;
             load_img.Click += Load_img_Click;
             tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
@@ -138,6 +144,21 @@ namespace ulesanned
             reg.Click += Reg_Click;
             log.Click += Log_Click;
             this.Controls.Add(tlp);
+        }
+
+        private void Email_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = (e.KeyChar == (char)Keys.Space);
+        }
+
+        private void Password_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = (e.KeyChar == (char)Keys.Space);
+        }
+
+        private void Username_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = (e.KeyChar == (char)Keys.Space);
         }
 
         private void Load_img_Click(object sender, EventArgs e)
@@ -168,20 +189,27 @@ namespace ulesanned
 
         private void Reg_Click(object sender, EventArgs e)
         {
-            ApplicationContext con = new ApplicationContext();
-            kasutaja uss_konto = new kasutaja();
-            uss_konto.nimi=username.Text.Trim();
-            uss_konto.salasona=password.Text.Trim();
-            uss_konto.sugu = sugu;
-            uss_konto.vanus = (int)dtp.Value;
-            uss_konto.email=email.Text.Trim();
-            uss_konto.avatar = avatar;
-            uss_konto.isadmin = 0;
-            con.kasutajad1.Add(uss_konto);
-            con.SaveChangesAsync();
-            this.Close();
-            Form1 w = new Form1(uss_konto);
-            w.Show();
+            if (username.Text == "" ^ username.Text.Any(char.IsDigit))
+            {
+                MessageBox.Show("Sisestage nimi!\n1.Teie nimi ei tohi sisaldada numbreid ega muid märke!\n2.Teie nimi ei tohi olla tühi!");
+            }
+            else
+            {
+                ApplicationContext con = new ApplicationContext();
+                kasutaja uss_konto = new kasutaja();
+                uss_konto.nimi = username.Text.Trim();
+                uss_konto.salasona = password.Text.Trim();
+                uss_konto.sugu = sugu;
+                uss_konto.vanus = (int)dtp.Value;
+                uss_konto.email = email.Text.Trim();
+                uss_konto.avatar = avatar;
+                uss_konto.isadmin = 0;
+                con.kasutajad1.Add(uss_konto);
+                con.SaveChangesAsync();
+                this.Close();
+                Form1 w = new Form1(uss_konto);
+                w.Show();
+            }
         }
     
 
