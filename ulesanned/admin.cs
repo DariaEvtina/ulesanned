@@ -12,6 +12,7 @@ namespace ulesanned
 {
     public partial class admin : Form
     {
+        DataGridView dgv;
         public admin()
         {
             this.Text = "admin vorm";
