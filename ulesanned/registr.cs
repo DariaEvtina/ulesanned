@@ -179,7 +179,6 @@ namespace ulesanned
             uss_konto.isadmin = 0;
             con.kasutajad1.Add(uss_konto);
             con.SaveChangesAsync();
-            //MessageBox.Show($"Nimi {username.Text.Trim()} pass: {password.Text.Trim()} Sugu: {sugu} Vanus: {dtp.Value} Avatr: {avatar}");
             this.Close();
             Form1 w = new Form1(uss_konto);
             w.Show();
