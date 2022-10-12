@@ -222,7 +222,7 @@ namespace ulesanned
             rek.rekord = $"{time} sekondit";
             if (kas != null)
             {
-                rek.kasutaja = kas.nimi + " " + kas.email;
+                rek.kasutaja = kas.nimi + "-" + kas.email;
             }
             else
             {
