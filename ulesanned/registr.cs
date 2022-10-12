@@ -243,6 +243,12 @@ namespace ulesanned
             {
                 Text = "lisa pilt"
             };
+            Button log = new Button
+            {
+                Text = "avaleht",
+                Size = new Size(150, 50),
+                Location = new Point(70, 350),
+            };
             email.KeyPress += Email_KeyPress;
             password.KeyPress += Password_KeyPress;
             username.KeyPress += Username_KeyPress;
@@ -269,7 +275,9 @@ namespace ulesanned
             tlp.Controls.Add(e_post, 0, 5);
             tlp.Controls.Add(email, 1, 5);
             tlp.Controls.Add(reg, 0, 6);
+            tlp.Controls.Add(log, 1, 6);
             reg.Click += Reg_Click;
+            log.Click += Log_Click;
             this.Controls.Add(tlp);
         }
 
@@ -309,9 +317,20 @@ namespace ulesanned
 
         private void Log_Click(object sender, EventArgs e)
         {
-            login log = new login();
-            this.Close();
-            log.Show();
+            Button clickbutton = (Button)sender;
+            if (clickbutton.Text == "või logi sisse")
+            {
+                login log = new login();
+                this.Close();
+                log.Show();
+            }
+            else if (clickbutton.Text == "avaleht")
+            {
+                this.Close();
+                Form1 w = new Form1(kas);
+                w.Show();
+            }
+
         }
 
         private void Reg_Click(object sender, EventArgs e)
@@ -351,19 +370,22 @@ namespace ulesanned
                 else
                 {
                     ApplicationContext con = new ApplicationContext();
-                    foreach (kasutaja kasutajad in con.kasutajad1)
-                    {
-                        if (kasutajad.email==kas.email && kasutajad.salasona == kas.salasona)
+                    kasutaja konto_kas = con.kasutajad1.Find(kas.ID);
+                    con.kasutajad1.Remove(con.kasutajad1.Find(kas.ID));
+                        if (konto_kas.email==kas.email)
                         {
-                            kasutajad.email=email.Text;
-                            kasutajad.nimi = username.Text;
-                            kasutajad.avatar = avatar;
-                            kasutajad.salasona=password.Text;
-                            kasutajad.sugu = sugu;
-                            kasutajad.vanus = (int)dtp.Value;
+                            konto_kas.email=email.Text;
+                            konto_kas.nimi = username.Text;
+                            konto_kas.avatar = avatar;
+                            konto_kas.salasona=password.Text;
+                            konto_kas.sugu = sugu;
+                            konto_kas.vanus = (int)dtp.Value;
+                            con.kasutajad1.Add(konto_kas);
                             con.SaveChanges();
+                            this.kas=konto_kas;
+                            MessageBox.Show("andmed on muudetud");
                         }
-                    }
+                    
                 }
             }
         }

@@ -95,18 +95,24 @@ namespace ulesanned
                     w.Show();
                 }
             }*/
-            kasutaja log_kas = con.kasutajad1.Find(kas.ID);
-            if (log_kas!=null)
+
+            foreach (kasutaja kas in con.kasutajad1)
             {
-                this.Close();
-                this.kas = kas;
-                Form1 w = new Form1(kas);
-                w.Show();
+                if (kas.email == username.Text.Trim() && kas.salasona==password.Text.Trim())
+                {
+                    this.Close();
+                    this.kas = kas;
+                    Form1 w = new Form1(kas);
+                    w.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Kasutaja ei leinud", "error");
+                }
+
+
             }
-            else
-            {
-                MessageBox.Show("Kasutaja ei leinud", "error");
-            }   
+
         }
 
         private void Reg_Click(object sender, EventArgs e)
