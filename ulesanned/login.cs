@@ -105,12 +105,10 @@ namespace ulesanned
                     Form1 w = new Form1(kas);
                     w.Show();
                 }
-                else
-                {
-                    MessageBox.Show("Kasutaja ei leinud", "error");
-                }
-
-
+            }
+            if(kas==null)
+            {
+                MessageBox.Show("Kasutaja ei leinud", "error");
             }
 
         }

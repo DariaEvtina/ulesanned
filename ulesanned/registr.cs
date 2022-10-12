@@ -25,7 +25,7 @@ namespace ulesanned
         RadioButton naine;
         NumericUpDown dtp;
         string sugu;
-        string avatar=@"..\..\avatar.png";
+        string avatar=@"..\..\img\avatar.png";
         kasutaja kas;
         public registr()
         {
@@ -371,20 +371,14 @@ namespace ulesanned
                 {
                     ApplicationContext con = new ApplicationContext();
                     kasutaja konto_kas = con.kasutajad1.Find(kas.ID);
-                    con.kasutajad1.Remove(con.kasutajad1.Find(kas.ID));
-                        if (konto_kas.email==kas.email)
-                        {
-                            konto_kas.email=email.Text;
-                            konto_kas.nimi = username.Text;
-                            konto_kas.avatar = avatar;
-                            konto_kas.salasona=password.Text;
-                            konto_kas.sugu = sugu;
-                            konto_kas.vanus = (int)dtp.Value;
-                            con.kasutajad1.Add(konto_kas);
-                            con.SaveChanges();
-                            this.kas=konto_kas;
-                            MessageBox.Show("andmed on muudetud");
-                        }
+                    konto_kas.email=email.Text;
+                    konto_kas.nimi = username.Text;
+                    konto_kas.avatar = avatar;
+                    konto_kas.salasona=password.Text;
+                    konto_kas.sugu = sugu;
+                    konto_kas.vanus = (int)dtp.Value;
+                    con.SaveChanges();
+                    MessageBox.Show("andmed on muudetud");
                     
                 }
             }

@@ -79,11 +79,17 @@ namespace ulesanned
                 Size = new Size(285, 50),
                 Location = new Point(0, 165)
             };
+            Button logout = new Button
+            {
+                Text = "logi välja",
+                Size = new Size(285, 50),
+                Location = new Point(0, 220)
+            };
             Button admin_vorm = new Button
             {
                 Text = "admenistreerimine",
                 Size = new Size(285, 50),
-                Location = new Point(0, 220)
+                Location = new Point(0, 275)
             };
             UL1.Click += new System.EventHandler(UL_Click);
             UL2.Click += new System.EventHandler(UL_Click);
@@ -93,6 +99,8 @@ namespace ulesanned
             {
                 this.Controls.Add(admin_vorm);
             }
+            this.Controls.Add(logout);
+            logout.Click+= new System.EventHandler(UL_Click);
             login.Click += new System.EventHandler(UL_Click);
             this.Controls.Add(login);
             this.Controls.Add(UL1);
@@ -132,6 +140,13 @@ namespace ulesanned
                     this.Hide();
                     login log = new login();
                     log.Show();
+            }
+            else if (btn_click.Text == "logi välja")
+            {
+                this.Hide();
+                Form1 w = new Form1();
+                kas = null;
+                w.Show();
             }
             else if (btn_click.Text == "muu konto")
             {
