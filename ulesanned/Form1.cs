@@ -107,7 +107,7 @@ namespace ulesanned
             {
                 if (kas!=null)
                 {
-                    Form4 ul3 = new Form4();
+                    Form4 ul3 = new Form4(kas);
                     ul3.Show();
                 }
                 else
