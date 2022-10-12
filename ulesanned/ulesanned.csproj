@@ -119,6 +119,7 @@
     <Compile Include="registr.Designer.cs">
       <DependentUpon>registr.cs</DependentUpon>
     </Compile>
+    <Compile Include="rekordit.cs" />
     <EmbeddedResource Include="admin.resx">
       <DependentUpon>admin.cs</DependentUpon>
     </EmbeddedResource>

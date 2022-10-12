@@ -73,6 +73,54 @@ namespace ulesanned
             AssignIconsToSquares();
             timeLeft.Start();
         }
+        public Form4(kasutaja kas)
+        {
+            time = 0;
+            this.Size = new Size(550, 550);
+            this.Text = "sobitamise mäng "+kas.nimi;
+            tlp = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill,
+                BackColor = Color.CornflowerBlue,
+                CellBorderStyle = TableLayoutPanelCellBorderStyle.InsetDouble,
+                ColumnCount = 4,
+                RowCount = 4,
+            };
+            for (int j = 0; j < 4; j++)
+            {
+                tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+                for (int e = 0; e < 4; e++)
+                {
+                    tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+                }
+            }
+            int i = 0;
+            while (i != 4)
+            {
+                for (int e = 0; e < 4; e++)
+                {
+                    Label lbl = new Label
+                    {
+                        BackColor = Color.CornflowerBlue,
+                        AutoSize = false,
+                        Dock = DockStyle.Fill,
+                        TextAlign = System.Drawing.ContentAlignment.MiddleCenter,
+                        Font = new Font("Arial", 48, FontStyle.Bold, (GraphicsUnit)ButtonBorderStyle.Solid, (byte)BorderType.Ellipse),
+                        Text = ""
+                    };
+                    lbl.Click += new System.EventHandler(Lbl_Click);
+                    tlp.Controls.Add(lbl, i, e);
+                }
+                i++;
+            }
+            this.Controls.Add(tlp);
+            timer = new Timer();
+            timeLeft = new Timer();
+            timeLeft.Tick += TimeLeft_Tick;
+            timer.Tick += Timer_Tick;
+            AssignIconsToSquares();
+            timeLeft.Start();
+        }
 
         private void TimeLeft_Tick(object sender, EventArgs e)
         {

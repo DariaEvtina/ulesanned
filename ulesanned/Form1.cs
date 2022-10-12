@@ -12,7 +12,7 @@ namespace ulesanned
 {
     public partial class Form1 : Form
     {
-        kasutaja kasutaja; 
+        kasutaja kas=null; 
         public Form1()
         {
             this.Size = new Size(301,350);
@@ -52,6 +52,7 @@ namespace ulesanned
         }
         public Form1(kasutaja kas)
         {
+            this.kas = kas;
             this.Size = new Size(301, 350);
             this.Text = "ÜLESANNEID "+kas.nimi;
             Button UL1 = new Button
@@ -104,12 +105,20 @@ namespace ulesanned
             }
             else if (btn_click.Text == "ulesanne #3")
             {
+                if (kas!=null)
+                {
                     Form4 ul3 = new Form4();
                     ul3.Show();
+                }
+                else
+                {
+                    Form4 ul3 = new Form4();
+                    ul3.Show();
+                }   
             }
             else if (btn_click.Text == "logi sisse")
             {
-                    this.Close();
+                    this.Hide();
                     login log = new login();
                     log.Show();
             }

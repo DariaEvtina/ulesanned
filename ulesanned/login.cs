@@ -17,7 +17,7 @@ namespace ulesanned
     {
         TextBox username;
         TextBox password;
-
+        kasutaja kas=null;
         public login()
         {
             this.Text = "login vorm";
@@ -90,9 +90,14 @@ namespace ulesanned
                 if (kas.email==username.Text.Trim() && kas.salasona==password.Text.Trim())
                 {
                     this.Close();
+                    this.kas = kas;
                     Form1 w = new Form1(kas);
                     w.Show();
                 }
+            }
+            if (kas==null)
+            {
+                MessageBox.Show("Kasutaja ei leinud", "error");
             }
         }
 

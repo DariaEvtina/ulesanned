@@ -19,7 +19,7 @@ namespace ulesanned
         {
             if (Database.Exists("kasutajad"))
             {
-                Database.SetInitializer(new DropCreateDatabaseAlways<ApplicationContext>());
+                Database.SetInitializer(new CreateDatabaseIfNotExists<ApplicationContext>());
             }
         }
         public DbSet<kasutaja> kasutajad1{get; set;}
