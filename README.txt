@@ -54,22 +54,37 @@ Reg_Click(object sender, EventArgs e) - lisa uus konto andmebaasisse
             uss_konto.isadmin = 0;
             con.kasutajad1.Add(uss_konto);
             con.SaveChangesAsync();
+  oma konto teabe muutmine
+    code: 
+      ApplicationContext con = new ApplicationContext();
+                    kasutaja uss_konto = new kasutaja();
+                    uss_konto.nimi = username.Text.Trim();
+                    uss_konto.salasona = password.Text.Trim();
+                    uss_konto.sugu = sugu;
+                    uss_konto.vanus = (int)dtp.Value;
+                    uss_konto.email = email.Text.Trim();
+                    uss_konto.avatar = avatar;
+                    uss_konto.isadmin = 0;
+                    con.kasutajad1.Add(uss_konto);
+                    con.SaveChangesAsync();
   login - login vorm
  Log_Click(object sender, EventArgs e) - otsin andmebaasist kontot
   code:
    ApplicationContext con = new ApplicationContext();
-            fkasutaja log_kas = con.kasutajad1.Find(kas.ID);
-            if (log_kas!=null)
+            foreach (kasutaja kas in con.kasutajad1)
             {
-                this.Close();
-                this.kas = kas;
-                Form1 w = new Form1(kas);
-                w.Show();
+                if (kas.email == username.Text.Trim() && kas.salasona==password.Text.Trim())
+                {
+                    this.Close();
+                    this.kas = kas;
+                    Form1 w = new Form1(kas);
+                    w.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Kasutaja ei leinud", "error");
+                }
             }
-            else
-            {
-                MessageBox.Show("Kasutaja ei leinud", "error");
-            }   
  rekordit.cs - rekordite tabeliklass
  kasutaja.cs - kasutaja tabeli klass
  
