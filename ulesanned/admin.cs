@@ -23,6 +23,11 @@ namespace ulesanned
                 RowCount = 2,
                 ColumnCount = 2,
             };
+            dgv=new DataGridView();
+            tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
+            tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 85F));
+            tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
+            tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
         }
 
         private void admin_Load(object sender, EventArgs e)

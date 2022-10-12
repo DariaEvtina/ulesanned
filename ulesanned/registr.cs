@@ -332,7 +332,7 @@ namespace ulesanned
             }
 
         }
-
+        bool uus_konto = true;
         private void Reg_Click(object sender, EventArgs e)
         {
             Button clickbutton=(Button)sender;
@@ -345,19 +345,30 @@ namespace ulesanned
                 else
                 {
                     ApplicationContext con = new ApplicationContext();
-                    kasutaja uss_konto = new kasutaja();
-                    uss_konto.nimi = username.Text.Trim();
-                    uss_konto.salasona = password.Text.Trim();
-                    uss_konto.sugu = sugu;
-                    uss_konto.vanus = (int)dtp.Value;
-                    uss_konto.email = email.Text.Trim();
-                    uss_konto.avatar = avatar;
-                    uss_konto.isadmin = 0;
-                    con.kasutajad1.Add(uss_konto);
-                    con.SaveChangesAsync();
-                    this.Close();
-                    Form1 w = new Form1(uss_konto);
-                    w.Show();
+                    foreach (kasutaja c in con.kasutajad1)
+                    {
+                        if (c.email== email.Text.Trim())
+                        {
+                            MessageBox.Show("see e-postitus on juba kasutusel! sisestage uus");
+                            uus_konto=false;
+                        }
+                    }
+                    if (uus_konto==true)
+                    {
+                        kasutaja uss_konto = new kasutaja();
+                        uss_konto.nimi = username.Text.Trim();
+                        uss_konto.salasona = password.Text.Trim();
+                        uss_konto.sugu = sugu;
+                        uss_konto.vanus = (int)dtp.Value;
+                        uss_konto.email = email.Text.Trim();
+                        uss_konto.avatar = avatar;
+                        uss_konto.isadmin = 0;
+                        con.kasutajad1.Add(uss_konto);
+                        con.SaveChangesAsync();
+                        this.Close();
+                        Form1 w = new Form1(uss_konto);
+                        w.Show();
+                    }
                 }
             }
             else
