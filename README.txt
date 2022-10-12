@@ -1,8 +1,7 @@
 rakendusse kavandatud täiendused
 
 lisa administraatori vorm
-lisage muudatuste lisamine ja kustutamine alusest läbi adini vormi
-lisage funktsioon tulemuste andmebaasi lisamiseks
+lisage muudatuste lisamine ja kustutamine alusest läbi admini vormi
 
  Form3: - math quiz
 Timer_Tick() - taimer sekundites
@@ -15,6 +14,31 @@ btn_Click - oleneb tekstist täidab teatud funktsioone (muudab taustavärvi, nä
 TimeLeft_Tick - arvutab, kui kaua mäng sul aega võttis
 Lbl_Click - näitab ja kontrollib valitud märke (identsed või mitte)
 AssignIconsToSquares - randomiseerib mängus olevad märgid ja peidab need
+CheckForWinner() - kontrollib, kas olete võitnud
+  ja pärast kontrolli, kas olete registreeritud kasutaja või mitte
+   code: 
+     if (kas!=null)
+            {
+                MessageBox.Show($"Sa sobitasid kõik ikoonid!{kas.nimi} sul on aeg: {time} sekondit", "palju õnne");
+            }
+            else
+            {
+                MessageBox.Show($"Sa sobitasid kõik ikoonid! Sul on aeg: {time} sekondit", "palju õnne");
+            }
+   ka pärast seda, kui see lisab teie kirje tabelisse ja registreerimisel sisestab kasutaja väljale teie nime ja posti või kirjutab teid külalisena
+    code:
+     ApplicationContext con = new ApplicationContext();
+            rekordit rek = new rekordit();
+            rek.mang = this.Text;
+            rek.rekord = $"{time} sekondit";
+            if (kas != null)
+            {
+                rek.kasutaja = kas.nimi + "-" + kas.email;
+            }
+            else
+            {
+                rek.kasutaja = "külaline";
+            }
 
  regist - registrerimine vorm
 Reg_Click(object sender, EventArgs e) - lisa uus konto andmebaasisse
