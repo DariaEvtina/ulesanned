@@ -54,6 +54,19 @@ Reg_Click(object sender, EventArgs e) - lisa uus konto andmebaasisse
             uss_konto.isadmin = 0;
             con.kasutajad1.Add(uss_konto);
             con.SaveChangesAsync();
+  oma konto teabe muutmine
+    code: 
+      ApplicationContext con = new ApplicationContext();
+                    kasutaja uss_konto = new kasutaja();
+                    uss_konto.nimi = username.Text.Trim();
+                    uss_konto.salasona = password.Text.Trim();
+                    uss_konto.sugu = sugu;
+                    uss_konto.vanus = (int)dtp.Value;
+                    uss_konto.email = email.Text.Trim();
+                    uss_konto.avatar = avatar;
+                    uss_konto.isadmin = 0;
+                    con.kasutajad1.Add(uss_konto);
+                    con.SaveChangesAsync();
   login - login vorm
  Log_Click(object sender, EventArgs e) - otsin andmebaasist kontot
   code:
