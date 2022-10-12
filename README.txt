@@ -1,11 +1,9 @@
 rakendusse kavandatud täiendused
 
 lisa administraatori vorm
-lisa registreerimisvormilt andmebaasi lisamise funktsioon
-lisage sisselogimisvormile kasutajate andmebaasist lugemise funktsioon
 lisage muudatuste lisamine ja kustutamine alusest läbi adini vormi
-lisa kolme mängu tulemuste tabel
 lisage funktsioon tulemuste andmebaasi lisamiseks
+
  Form3: - math quiz
 Timer_Tick() - taimer sekundites
 check() - kontrollib vastuseid *jagamisel ümardatud
@@ -18,5 +16,48 @@ TimeLeft_Tick - arvutab, kui kaua mäng sul aega võttis
 Lbl_Click - näitab ja kontrollib valitud märke (identsed või mitte)
 AssignIconsToSquares - randomiseerib mängus olevad märgid ja peidab need
 
-
-
+ regist - registrerimine vorm
+Reg_Click(object sender, EventArgs e) - lisa uus konto andmebaasisse
+ code:
+  ApplicationContext con = new ApplicationContext();
+            kasutaja uss_konto = new kasutaja();
+            uss_konto.nimi=username.Text.Trim();
+            uss_konto.salasona=password.Text.Trim();
+            uss_konto.sugu = sugu;
+            uss_konto.vanus = (int)dtp.Value;
+            uss_konto.email=email.Text.Trim();
+            uss_konto.avatar = avatar;
+            uss_konto.isadmin = 0;
+            con.kasutajad1.Add(uss_konto);
+            con.SaveChangesAsync();
+  login - login vorm
+ Log_Click(object sender, EventArgs e) - otsin andmebaasist kontot
+  code:
+   ApplicationContext con = new ApplicationContext();
+            foreach (kasutaja kas in con.kasutajad1)
+            {
+                if (kas.email==username.Text.Trim() && kas.salasona==password.Text.Trim())
+                {
+                    this.Close();
+                    this.kas = kas;
+                    Form1 w = new Form1(kas);
+                    w.Show();
+                }
+            }
+            if (kas==null)
+            {
+                MessageBox.Show("Kasutaja ei leinud", "error");
+            }
+ rekordit.cs - rekordite tabeliklass
+ kasutaja.cs - kasutaja tabeli klass
+ 
+ ApplicationContext.cs - andmebaasi kontekstiklass
+  public ApplicationContext() : base("kasutajad") //kontrollib, kas andmebaas on loodud ja loob uuesti, kui lisatakse uusi tabeleid *mineviku andmebaas andmeid ei salvestata
+        {
+            if (Database.Exists("kasutajad"))
+            {
+                Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ApplicationContext>());
+            }
+        }
+  public DbSet<kasutaja> kasutajad1{get; set;} - kasutajad tabel
+  public DbSet<rekordit> rekordit1 { get; set; } - rekordi tabel
