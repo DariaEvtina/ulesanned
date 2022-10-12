@@ -41,18 +41,47 @@ namespace ulesanned
                 Size = new Size(285, 50),
                 Location = new Point(0, 165)
             };
-            Button admin_vorm = new Button
-            {
-                Text = "admenistreerimine",
-                Size = new Size(285, 50),
-                Location = new Point(0, 220)
-            };
             UL1.Click += new System.EventHandler( UL_Click);
             UL2.Click += new System.EventHandler(UL_Click);
             UL3.Click += new System.EventHandler(UL_Click);
             login.Click += new System.EventHandler(UL_Click);
-            admin_vorm.Click += new System.EventHandler(UL_Click);
             this.Controls.Add(login);
+            this.Controls.Add(UL1);
+            this.Controls.Add(UL2);
+            this.Controls.Add(UL3);
+        }
+        public Form1(kasutaja kas)
+        {
+            this.Size = new Size(301, 350);
+            this.Text = "ÜLESANNEID "+kas.nimi;
+            Button UL1 = new Button
+            {
+                Text = "ulesanne #1",
+                Size = new Size(285, 50),
+                Location = new Point(0, 0)
+            };
+            Button UL3 = new Button
+            {
+                Text = "ulesanne #2",
+                Size = new Size(285, 50),
+                Location = new Point(0, 55)
+            };
+            Button UL2 = new Button
+            {
+                Text = "ulesanne #3",
+                Size = new Size(285, 50),
+                Location = new Point(0, 110)
+            };
+            Button admin_vorm = new Button
+            {
+                Text = "admenistreerimine",
+                Size = new Size(285, 50),
+                Location = new Point(0, 165)
+            };
+            UL1.Click += new System.EventHandler(UL_Click);
+            UL2.Click += new System.EventHandler(UL_Click);
+            UL3.Click += new System.EventHandler(UL_Click);
+            admin_vorm.Click += new System.EventHandler(UL_Click);
             this.Controls.Add(admin_vorm);
             this.Controls.Add(UL1);
             this.Controls.Add(UL2);
@@ -80,6 +109,7 @@ namespace ulesanned
             }
             else if (btn_click.Text == "logi sisse")
             {
+                    this.Close();
                     login log = new login();
                     log.Show();
             }

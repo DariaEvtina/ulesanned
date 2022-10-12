@@ -85,6 +85,15 @@ namespace ulesanned
         private void Log_Click(object sender, EventArgs e)
         {
             ApplicationContext con = new ApplicationContext();
+            foreach (kasutaja kas in con.kasutajad1)
+            {
+                if (kas.email==username.Text.Trim() && kas.salasona==password.Text.Trim())
+                {
+                    this.Close();
+                    Form1 w = new Form1(kas);
+                    w.Show();
+                }
+            }
         }
 
         private void Reg_Click(object sender, EventArgs e)
