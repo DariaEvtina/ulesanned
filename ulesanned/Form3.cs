@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 //
 namespace ulesanned
 {
@@ -22,6 +23,7 @@ namespace ulesanned
         Label v1_2; Label v2_2; Label sign_2; Label equel_2; NumericUpDown Result_2;
         Timer timer;
         int timeLeft=1000;
+        int record = 0;
         char[] sings = new char[] { '-', '+', '/', '*' };
         public Form3()
         {
@@ -219,6 +221,204 @@ namespace ulesanned
             this.Controls.Add(Timelb);
             this.Controls.Add(lb);
         }
+        kasutaja kas;
+        public Form3(kasutaja kas)
+        {
+            this.kas = kas;
+            this.Size = new Size(500, 400);
+            this.Text = "matimaatika viktoriin";
+            this.FormBorderStyle = FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            Timelb = new Label
+            {
+                AutoSize = false,
+                BorderStyle = BorderStyle.FixedSingle,
+                Size = new Size(200, 30),
+                Location = new Point(275, 10),
+                Font = new Font("Arial", 16)
+            };
+            Label lb = new Label
+            {
+                Text = "aega jäänud",
+                Size = new Size(150, 30),
+                Location = new Point(165, 10),
+                Font = new Font("Arial", 16)
+            };
+            TableLayoutPanel tlp = new TableLayoutPanel
+            {
+                AutoSize = true,
+                Size = new Size(100, 270),
+                Location = new Point(80, 50),
+                ColumnCount = 5,
+                RowCount = 4,
+                BackColor = Color.White,
+            };
+            Start = new Button
+            {
+                Text = "alusta viktoriini",
+                Location = new Point(200, 325)
+            };
+            Finish = new Button
+            {
+                Text = "lõpeta viktoriin",
+                Location = new Point(200, 325),
+                Visible = false
+            };
+            rnd = new Random();
+            for (int i = 0; i < 4; i++)
+            {
+                tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+                for (int e = 0; e < 4; e++)
+                {
+                    tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 3F));
+                }
+            }
+            Result_1 = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18), Minimum = -20 };
+            v1_1 = new Label
+            {
+                Text = "?",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            v2_1 = new Label
+            {
+                Text = "?",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            sign_1 = new Label
+            {
+                Text = $"{sings[rnd.Next(0, 3)]}",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            equel_1 = new Label
+            {
+                Text = "=",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            tlp.Controls.Add(v1_1, 0, 0);
+            tlp.Controls.Add(sign_1, 1, 0);
+            tlp.Controls.Add(v2_1, 2, 0);
+            tlp.Controls.Add(equel_1, 3, 0);
+            tlp.Controls.Add(Result_1, 4, 0);
+            Result = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18), Minimum = -20 };
+            v1 = new Label
+            {
+                Text = "?",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            v2 = new Label
+            {
+                Text = "?",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            sign = new Label
+            {
+                Text = $"{sings[rnd.Next(0, 3)]}",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            equel = new Label
+            {
+                Text = "=",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            tlp.Controls.Add(v1, 0, 1);
+            tlp.Controls.Add(sign, 1, 1);
+            tlp.Controls.Add(v2, 2, 1);
+            tlp.Controls.Add(equel, 3, 1);
+            tlp.Controls.Add(Result, 4, 1);
+            Result_ = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18), Minimum = -20 };
+            v1_ = new Label
+            {
+                Text = "?",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            v2_ = new Label
+            {
+                Text = "?",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            sign_ = new Label
+            {
+                Text = $"{sings[rnd.Next(0, 3)]}",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            equel_ = new Label
+            {
+                Text = "=",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            tlp.Controls.Add(v1_, 0, 2);
+            tlp.Controls.Add(sign_, 1, 2);
+            tlp.Controls.Add(v2_, 2, 2);
+            tlp.Controls.Add(equel_, 3, 2);
+            tlp.Controls.Add(Result_, 4, 2);
+            Result_2 = new NumericUpDown { Size = new Size(60, 50), Font = new Font("Arial", 18), Minimum = -20 };
+            v1_2 = new Label
+            {
+                Text = "?",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            v2_2 = new Label
+            {
+                Text = "?",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            sign_2 = new Label
+            {
+                Text = $"{sings[rnd.Next(0, 3)]}",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            equel_2 = new Label
+            {
+                Text = "=",
+                Size = new Size(60, 50),
+                Font = new Font("Arial", 18),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+            tlp.Controls.Add(v1_2, 0, 3);
+            tlp.Controls.Add(sign_2, 1, 3);
+            tlp.Controls.Add(v2_2, 2, 3);
+            tlp.Controls.Add(equel_2, 3, 3);
+            tlp.Controls.Add(Result_2, 4, 3);
+            Start.Click += Start_Click;
+            Finish.Click += Finish_Click;
+            timer = new Timer();
+            timer.Tick += Timer_Tick;
+            this.Controls.Add(tlp);
+            this.Controls.Add(Finish);
+            this.Controls.Add(Start);
+            this.Controls.Add(Timelb);
+            this.Controls.Add(lb);
+        }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -244,6 +444,7 @@ namespace ulesanned
                 if (Result.Value == Convert.ToInt32(v1.Text) + Convert.ToInt32(v2.Text))
                 {
                     Result.BackColor = Color.Green;
+                    record += 1;
                 }
                 else if (Result.Value != Convert.ToInt32(v1.Text) + Convert.ToInt32(v2.Text))
                 {
@@ -255,6 +456,7 @@ namespace ulesanned
                 if (Result.Value == Convert.ToInt32(v1.Text) - Convert.ToInt32(v2.Text))
                 {
                     Result.BackColor = Color.Green;
+                    record += 1;
                 }
                 else if (Result.Value != Convert.ToInt32(v1.Text) - Convert.ToInt32(v2.Text))
                 {
@@ -266,6 +468,7 @@ namespace ulesanned
                 if (Result.Value == Math.Abs(Convert.ToInt32(v1.Text) / Convert.ToInt32(v2.Text)))
                 {
                     Result.BackColor = Color.Green;
+                    record += 1;
                 }
                 else if (Result.Value != Math.Abs(Convert.ToInt32(v1.Text) / Convert.ToInt32(v2.Text)))
                 {
@@ -277,6 +480,7 @@ namespace ulesanned
                 if (Result.Value == Math.Abs(Convert.ToInt32(v1.Text) * Convert.ToInt32(v2.Text)))
                 {
                     Result.BackColor = Color.Green;
+                    record += 1;
                 }
                 else if (Result.Value != Math.Abs(Convert.ToInt32(v1.Text) * Convert.ToInt32(v2.Text)))
                 {
@@ -289,6 +493,7 @@ namespace ulesanned
                 if (Result_.Value == Convert.ToInt32(v1_.Text) + Convert.ToInt32(v2_.Text))
                 {
                     Result_.BackColor = Color.Green;
+                    record += 1;
                 }
                 else if (Result_.Value != Convert.ToInt32(v1_.Text) + Convert.ToInt32(v2_.Text))
                 {
@@ -300,6 +505,7 @@ namespace ulesanned
                 if (Result_.Value == Convert.ToInt32(v1_.Text) - Convert.ToInt32(v2_.Text))
                 {
                     Result_.BackColor = Color.Green;
+                    record += 1;
                 }
                 else if (Result_.Value !=Convert.ToInt32(v1_.Text) - Convert.ToInt32(v2_.Text))
                 {
@@ -311,6 +517,7 @@ namespace ulesanned
                 if (Result_.Value == Math.Abs(Convert.ToInt32(v1_.Text) / Convert.ToInt32(v2_.Text)))
                 {
                     Result_.BackColor = Color.Green;
+                    record += 1;
                 }
                 else if (Result_.Value != Math.Abs(Convert.ToInt32(v1_.Text) / Convert.ToInt32(v2_.Text)))
                 {
@@ -322,6 +529,7 @@ namespace ulesanned
                 if (Result_.Value == Math.Abs(Convert.ToInt32(v1_.Text) * Convert.ToInt32(v2_.Text)))
                 {
                     Result_.BackColor = Color.Green;
+                    record += 1;
                 }
                 else if (Result_.Value != Math.Abs(Convert.ToInt32(v1_.Text) * Convert.ToInt32(v2_.Text)))
                 {
@@ -334,6 +542,7 @@ namespace ulesanned
                 if (Result_1.Value == Convert.ToInt32(v1_1.Text) + Convert.ToInt32(v2_1.Text))
                 {
                     Result_1.BackColor = Color.Green;
+                    record += 1;
                 }
                 else if (Result_1.Value != Convert.ToInt32(v1_1.Text) + Convert.ToInt32(v2_1.Text))
                 {
@@ -345,6 +554,7 @@ namespace ulesanned
                 if (Result_1.Value == Convert.ToInt32(v1_1.Text) - Convert.ToInt32(v2_1.Text))
                 {
                     Result_1.BackColor = Color.Green;
+                    record += 1;
                 }
                 else if (Result_1.Value != Convert.ToInt32(v1_1.Text) - Convert.ToInt32(v2_1.Text))
                 {
@@ -356,6 +566,7 @@ namespace ulesanned
                 if (Result_1.Value == Math.Abs(Convert.ToInt32(v1_1.Text) / Convert.ToInt32(v2_1.Text)))
                 {
                     Result_1.BackColor = Color.Green;
+                    record += 1;
                 }
                 else if (Result_1.Value != Math.Abs(Convert.ToInt32(v1_1.Text) / Convert.ToInt32(v2_1.Text)))
                 {
@@ -367,6 +578,7 @@ namespace ulesanned
                 if (Result_1.Value == Math.Abs(Convert.ToInt32(v1_1.Text) * Convert.ToInt32(v2_1.Text)))
                 {
                     Result_1.BackColor = Color.Green;
+                    record += 1;
                 }
                 else if (Result_1.Value != Math.Abs(Convert.ToInt32(v1_1.Text) * Convert.ToInt32(v2_1.Text)))
                 {
@@ -379,6 +591,7 @@ namespace ulesanned
                 if (Result_2.Value == Convert.ToInt32(v1_2.Text) + Convert.ToInt32(v2_2.Text))
                 {
                     Result_2.BackColor = Color.Green;
+                    record += 1;
                 }
                 else if (Result_2.Value != Convert.ToInt32(v1_2.Text) + Convert.ToInt32(v2_2.Text))
                 {
@@ -390,6 +603,7 @@ namespace ulesanned
                 if (Result_2.Value == Convert.ToInt32(v1_2.Text) - Convert.ToInt32(v2_2.Text))
                 {
                     Result_2.BackColor = Color.Green;
+                    record += 1;
                 }
                 else if (Result_2.Value != Convert.ToInt32(v1_2.Text) - Convert.ToInt32(v2_2.Text))
                 {
@@ -401,6 +615,7 @@ namespace ulesanned
                 if (Result_2.Value == Math.Abs(Convert.ToInt32(v1_2.Text) / Convert.ToInt32(v2_2.Text)))
                 {
                     Result_2.BackColor = Color.Green;
+                    record += 1;
                 }
                 else if (Result_2.Value != Math.Abs(Convert.ToInt32(v1_2.Text) / Convert.ToInt32(v2_2.Text)))
                 {
@@ -412,6 +627,7 @@ namespace ulesanned
                 if (Result_2.Value == Math.Abs(Convert.ToInt32(v1_2.Text) * Convert.ToInt32(v2_2.Text)))
                 {
                     Result_2.BackColor = Color.Green;
+                    record += 1;
                 }
                 else if (Result_2.Value != Math.Abs(Convert.ToInt32(v1_2.Text) * Convert.ToInt32(v2_2.Text)))
                 {
@@ -425,6 +641,21 @@ namespace ulesanned
             Start.Visible = true;
             check();
             timer.Stop();
+            ApplicationContext con = new ApplicationContext();
+            rekordit rek = new rekordit();
+            rek.mang = this.Text;
+            rek.rekord = $"4/{record} õigus {2000 - timeLeft} sekondit";
+            if (kas != null)
+            {
+                rek.kasutaja = kas.nimi + "-" + kas.email;
+                MessageBox.Show($"{kas.nimi} sul on aeg: 4/{record} õigus {2000 - timeLeft} sekondit", "palju õnne");
+            }
+            else
+            {
+                rek.kasutaja = "külaline";
+                MessageBox.Show($" Sul on aeg: 4/{record} õigus {2000 - timeLeft} sekondit", "palju õnne");
+            }
+            con.rekordit1.Add(rek);
         }
 
         public void StartQuz()

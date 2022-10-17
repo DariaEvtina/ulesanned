@@ -119,8 +119,16 @@ namespace ulesanned
             }
             else if (btn_click.Text == "ulesanne #2")
             {
+                if (kas != null)
+                {
+                    Form3 ul2 = new Form3(kas);
+                    ul2.Show();
+                }
+                else
+                {
                     Form3 ul2 = new Form3();
                     ul2.Show();
+                }
             }
             else if (btn_click.Text == "ulesanne #3")
             {
