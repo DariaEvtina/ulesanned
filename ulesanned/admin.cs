@@ -24,8 +24,8 @@ namespace ulesanned
                 ColumnCount = 2,
             };
             dgv=new DataGridView();
-            tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
             tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 85F));
+            tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
             tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
             tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             this.Controls.Add(tlp);
