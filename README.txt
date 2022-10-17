@@ -3,14 +3,14 @@ rakendusse kavandatud täiendused
 lisa administraatori vorm
 lisage muudatuste lisamine ja kustutamine alusest läbi admini vormi
 
- Form3: - math quiz
+ Form3: - math quiz / matimaatika viktoriin
 Timer_Tick() - taimer sekundites
 check() - kontrollib vastuseid *jagamisel ümardatud
 StartQuz() - alustab viktoriini (seadistab taimeri ja määrab küsimused juhuslikult)
- Form2: - picture view
+ Form2: - picture view / pilt vaatama
 Cb_CheckedChanged - venitab pilti
 btn_Click - oleneb tekstist täidab teatud funktsioone (muudab taustavärvi, näitab pilti, eemaldab pildi, sulgeb vormi)
- Form4: - match game
+ Form4: - match game / sobitamise mäng
 TimeLeft_Tick - arvutab, kui kaua mäng sul aega võttis
 Lbl_Click - näitab ja kontrollib valitud märke (identsed või mitte)
 AssignIconsToSquares - randomiseerib mängus olevad märgid ja peidab need
