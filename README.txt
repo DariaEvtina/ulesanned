@@ -89,11 +89,11 @@ Reg_Click(object sender, EventArgs e) - lisa uus konto andmebaasisse
  kasutaja.cs - kasutaja tabeli klass
  
  ApplicationContext.cs - andmebaasi kontekstiklass
-  public ApplicationContext() : base("kasutajad") //kontrollib, kas andmebaas on loodud ja loob uuesti, kui lisatakse uusi tabeleid *mineviku andmebaas andmeid ei salvestata
+  public ApplicationContext() : base("kasutajad") 
         {
             if (Database.Exists("kasutajad"))
             {
-                Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ApplicationContext>());
+                Database.SetInitializer(new DropCreateDatabaseAlways<ApplicationContext>());
             }
         }
   public DbSet<kasutaja> kasutajad1{get; set;} - kasutajad tabel
