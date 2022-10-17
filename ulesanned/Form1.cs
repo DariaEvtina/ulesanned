@@ -15,7 +15,7 @@ namespace ulesanned
         kasutaja kas=null; 
         public Form1()
         {
-            this.Size = new Size(301,350);
+            this.Size = new Size(301,370);
             this.Text = "ÜLESANNEID";
             Button UL1 = new Button
             {
@@ -53,7 +53,7 @@ namespace ulesanned
         public Form1(kasutaja kas)
         {
             this.kas = kas;
-            this.Size = new Size(301, 350);
+            this.Size = new Size(301, 370);
             this.Text = "ÜLESANNEID "+kas.nimi;
             Button UL1 = new Button
             {
