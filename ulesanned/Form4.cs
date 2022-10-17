@@ -229,6 +229,7 @@ namespace ulesanned
                 rek.kasutaja = "külaline";
             }
             con.rekordit1.Add(rek);
+            con.SaveChangesAsync();
             time = 0;
             Close();
 

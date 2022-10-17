@@ -648,14 +648,15 @@ namespace ulesanned
             if (kas != null)
             {
                 rek.kasutaja = kas.nimi + "-" + kas.email;
-                MessageBox.Show($"{kas.nimi} sul on aeg: 4/{record} õigus {2000 - timeLeft} sekondit", "palju õnne");
+                MessageBox.Show($"{kas.nimi} sul on rekord: 4/{record} õigus {2000 - timeLeft} sekondit", "palju õnne");
             }
             else
             {
                 rek.kasutaja = "külaline";
-                MessageBox.Show($" Sul on aeg: 4/{record} õigus {2000 - timeLeft} sekondit", "palju õnne");
+                MessageBox.Show($" Sul on rekord: 4/{record} õigus {2000 - timeLeft} sekondit", "palju õnne");
             }
             con.rekordit1.Add(rek);
+            con.SaveChangesAsync();
         }
 
         public void StartQuz()

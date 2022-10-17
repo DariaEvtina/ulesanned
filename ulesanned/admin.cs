@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,10 +25,13 @@ namespace ulesanned
                 ColumnCount = 2,
             };
             dgv=new DataGridView();
+            ApplicationContext con = new ApplicationContext();
+            DataTable dt = new DataTable();
             tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 85F));
             tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
             tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
             tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            //tlp.Controls.Add(,0,0);
             this.Controls.Add(tlp);
         }
 
